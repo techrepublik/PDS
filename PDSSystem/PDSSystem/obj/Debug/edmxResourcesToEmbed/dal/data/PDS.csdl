@@ -1,0 +1,888 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PDSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Degree">
+    <Key>
+      <PropertyRef Name="DegreeNo" />
+    </Key>
+    <Property Name="DegreeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DegreeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DegreeShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Educations" Relationship="PDSModel.FK_Educations_Degrees" FromRole="Degree" ToRole="Education" />
+  </EntityType>
+  <EntityType Name="SchoolName">
+    <Key>
+      <PropertyRef Name="SchoolNo" />
+    </Key>
+    <Property Name="SchoolNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolName1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Educations" Relationship="PDSModel.FK_Educations_SchoolNames" FromRole="SchoolName" ToRole="Education" />
+  </EntityType>
+  <EntityType Name="Distinction">
+    <Key>
+      <PropertyRef Name="DistinctionNo" />
+    </Key>
+    <Property Name="DistinctionNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="DistinctionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Distinctions_Personnels" FromRole="Distinction" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Eligibility">
+    <Key>
+      <PropertyRef Name="EligibilityNo" />
+    </Key>
+    <Property Name="EligibilityNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="EligibilityName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EligibilityRating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EligibilityExamDate" Type="DateTime" Precision="0" />
+    <Property Name="EligibilityExamPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EligibilityLicenseNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EligibilityLicenseDate" Type="DateTime" Precision="0" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Eligibilities_Personnels" FromRole="Eligibility" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Experiency">
+    <Key>
+      <PropertyRef Name="ExperienceNo" />
+    </Key>
+    <Property Name="ExperienceNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="ExperienceDate1" Type="DateTime" Precision="0" />
+    <Property Name="ExperienceDate2" Type="DateTime" Precision="0" />
+    <Property Name="ExperiencePosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExperienceOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExperienceSalary" Type="Double" />
+    <Property Name="ExperienceSalaryGrade" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ExperienceStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExperienceIsGovernment" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Experiencies_Personnels" FromRole="Experiency" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="OrganizationNo" />
+    </Key>
+    <Property Name="OrganizationNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="OrganizationName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Organizations_Personnels" FromRole="Organization" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Skill">
+    <Key>
+      <PropertyRef Name="SkillNo" />
+    </Key>
+    <Property Name="SkillNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="SkillName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Skills_Personnels" FromRole="Skill" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="TrainingNo" />
+    </Key>
+    <Property Name="TrainingNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="TrainingName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TrainingDate1" Type="DateTime" Precision="0" />
+    <Property Name="TrainingDate2" Type="DateTime" Precision="0" />
+    <Property Name="TrainingNoHours" Type="Double" />
+    <Property Name="TrainingSponsor" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Trainings_Personnels" FromRole="Training" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Voluntary">
+    <Key>
+      <PropertyRef Name="VoluntaryNo" />
+    </Key>
+    <Property Name="VoluntaryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="VoluntaryOrganization" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="VoluntaryDate1" Type="DateTime" Precision="0" />
+    <Property Name="VoluntaryDate2" Type="DateTime" Precision="0" />
+    <Property Name="VoluntaryNoHours" Type="Double" />
+    <Property Name="VoluntaryPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Voluntaries_Personnels" FromRole="Voluntary" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressNo" />
+    </Key>
+    <Property Name="AddressNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="AddressTypeNo" Type="Int32" />
+    <Property Name="AddressLine1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MunicipalityNo" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AddressType" Relationship="Self.FK_Address_AddressTypes" FromRole="Address" ToRole="AddressTypes" />
+    <NavigationProperty Name="Municipality" Relationship="Self.FK_Address_Municipalities" FromRole="Address" ToRole="Municipalities" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Address_Personnels" FromRole="Address" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="AddressType">
+    <Key>
+      <PropertyRef Name="AddressTypeNo" />
+    </Key>
+    <Property Name="AddressTypeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AddressTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_AddressTypes" FromRole="AddressTypes" ToRole="Address" />
+  </EntityType>
+  <EntityType Name="Municipality">
+    <Key>
+      <PropertyRef Name="MunicipalityNo" />
+    </Key>
+    <Property Name="MunicipalityNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MunicipalityName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MunicipalityPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceNo" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="datemodified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Municipalities" FromRole="Municipalities" ToRole="Address" />
+    <NavigationProperty Name="Province" Relationship="Self.FK_Municipalities_Provinces" FromRole="Municipalities" ToRole="Provinces" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="ParentNo" />
+    </Key>
+    <Property Name="ParentNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="ParentFatherSurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentFatherFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentFatherMiddeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentMotherSurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentMotherFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ParentMotherMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceNo" />
+    </Key>
+    <Property Name="ProvinceNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinceName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RegionNo" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Municipalities" Relationship="Self.FK_Municipalities_Provinces" FromRole="Provinces" ToRole="Municipalities" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_Provinces_Regions" FromRole="Provinces" ToRole="Regions" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="RegionNo" />
+    </Key>
+    <Property Name="RegionNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Provinces" Relationship="Self.FK_Provinces_Regions" FromRole="Regions" ToRole="Provinces" />
+  </EntityType>
+  <EntityType Name="Spous">
+    <Key>
+      <PropertyRef Name="SpouseNo" />
+    </Key>
+    <Property Name="SpouseNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="SpouseSurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SpouseFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SpouseMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Employer" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EmployerAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Childrens" Relationship="PDSModel.FK_Childrens_Spouses" FromRole="Spous" ToRole="Children" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Spouses_Personnels" FromRole="Spous" ToRole="Personnel" />
+  </EntityType>
+  <Association Name="FK_Address_AddressTypes">
+    <End Role="AddressTypes" Type="Self.AddressType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressTypes">
+        <PropertyRef Name="AddressTypeNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="AddressTypeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_Municipalities">
+    <End Role="Municipalities" Type="Self.Municipality" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalities">
+        <PropertyRef Name="MunicipalityNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="MunicipalityNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipalities_Provinces">
+    <End Role="Provinces" Type="Self.Province" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Municipalities" Type="Self.Municipality" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="ProvinceNo" />
+      </Principal>
+      <Dependent Role="Municipalities">
+        <PropertyRef Name="ProvinceNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Regions">
+    <End Role="Regions" Type="Self.Region" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Provinces" Type="Self.Province" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="RegionNo" />
+      </Principal>
+      <Dependent Role="Provinces">
+        <PropertyRef Name="RegionNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PDSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Degrees" EntityType="Self.Degree" />
+    <EntitySet Name="SchoolNames" EntityType="Self.SchoolName" />
+    <EntitySet Name="Distinctions" EntityType="Self.Distinction" />
+    <EntitySet Name="Eligibilities" EntityType="Self.Eligibility" />
+    <EntitySet Name="Experiencies" EntityType="Self.Experiency" />
+    <EntitySet Name="Organizations" EntityType="Self.Organization" />
+    <EntitySet Name="Skills" EntityType="Self.Skill" />
+    <EntitySet Name="Trainings" EntityType="Self.Training" />
+    <EntitySet Name="Voluntaries" EntityType="Self.Voluntary" />
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="AddressTypes" EntityType="Self.AddressType" />
+    <EntitySet Name="Municipalities" EntityType="Self.Municipality" />
+    <EntitySet Name="Parents" EntityType="Self.Parent" />
+    <EntitySet Name="Provinces" EntityType="Self.Province" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="Spouses" EntityType="Self.Spous" />
+    <AssociationSet Name="FK_Address_AddressTypes" Association="Self.FK_Address_AddressTypes">
+      <End Role="AddressTypes" EntitySet="AddressTypes" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_Municipalities" Association="Self.FK_Address_Municipalities">
+      <End Role="Municipalities" EntitySet="Municipalities" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipalities_Provinces" Association="Self.FK_Municipalities_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Municipalities" EntitySet="Municipalities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Regions" Association="Self.FK_Provinces_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Provinces" EntitySet="Provinces" />
+    </AssociationSet>
+    <EntitySet Name="Educations" EntityType="PDSModel.Education" />
+    <AssociationSet Name="FK_Educations_Degrees" Association="PDSModel.FK_Educations_Degrees">
+      <End Role="Degree" EntitySet="Degrees" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_SchoolNames" Association="PDSModel.FK_Educations_SchoolNames">
+      <End Role="SchoolName" EntitySet="SchoolNames" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <EntitySet Name="Childrens" EntityType="PDSModel.Children" />
+    <AssociationSet Name="FK_Childrens_Spouses" Association="PDSModel.FK_Childrens_Spouses">
+      <End Role="Spous" EntitySet="Spouses" />
+      <End Role="Children" EntitySet="Childrens" />
+    </AssociationSet>
+    <EntitySet Name="Details" EntityType="PDSModel.Detail" />
+    <EntitySet Name="Questions" EntityType="PDSModel.Question" />
+    <EntitySet Name="References" EntityType="PDSModel.Reference" />
+    <EntitySet Name="Users" EntityType="PDSModel.User" />
+    <EntitySet Name="Personnels" EntityType="PDSModel.Personnel" />
+    <AssociationSet Name="FK_Details_Personnels" Association="PDSModel.FK_Details_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Detail" EntitySet="Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_Personnels" Association="PDSModel.FK_Questions_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_References_Personnels" Association="PDSModel.FK_References_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Reference" EntitySet="References" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_Personnels" Association="PDSModel.FK_Educations_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Education" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Distinctions_Personnels" Association="PDSModel.FK_Distinctions_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Distinction" EntitySet="Distinctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Eligibilities_Personnels" Association="PDSModel.FK_Eligibilities_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Eligibility" EntitySet="Eligibilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Experiencies_Personnels" Association="PDSModel.FK_Experiencies_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Experiency" EntitySet="Experiencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organizations_Personnels" Association="PDSModel.FK_Organizations_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Organization" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skills_Personnels" Association="PDSModel.FK_Skills_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Skill" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainings_Personnels" Association="PDSModel.FK_Trainings_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Training" EntitySet="Trainings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voluntaries_Personnels" Association="PDSModel.FK_Voluntaries_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Voluntary" EntitySet="Voluntaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_Personnels" Association="PDSModel.FK_Address_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Address" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spouses_Personnels" Association="PDSModel.FK_Spouses_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="Spous" EntitySet="Spouses" />
+    </AssociationSet>
+    <EntitySet Name="LeaveOffices" EntityType="PDSModel.LeaveOffice" />
+    <AssociationSet Name="FK_LeaveOffice_Personnels" Association="PDSModel.FK_LeaveOffice_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="LeaveOffice" EntitySet="LeaveOffices" />
+    </AssociationSet>
+    <EntitySet Name="LeaveApplications" EntityType="PDSModel.LeaveApplication" />
+    <EntitySet Name="Leaves" EntityType="PDSModel.Leaf" />
+    <EntitySet Name="LeaveTypes" EntityType="PDSModel.LeaveType" />
+    <AssociationSet Name="FK_LeaveApplication_Leaves" Association="PDSModel.FK_LeaveApplication_Leaves">
+      <End Role="Leaf" EntitySet="Leaves" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveApplication_LeaveTypes" Association="PDSModel.FK_LeaveApplication_LeaveTypes">
+      <End Role="LeaveType" EntitySet="LeaveTypes" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveApplication_Personnels" Association="PDSModel.FK_LeaveApplication_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Education">
+    <Key>
+      <PropertyRef Name="EducationNo" />
+    </Key>
+    <Property Name="EducationNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="EducationLevelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SchoolNo" Type="Int32" />
+    <Property Name="DegreeNo" Type="Int32" />
+    <Property Name="YearGraduated" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HighestLevelEarned" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="InclusiveDate1" Type="DateTime" Precision="0" />
+    <Property Name="InclusiveDate2" Type="DateTime" Precision="0" />
+    <Property Name="ScholarshipHonor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Degree" Relationship="PDSModel.FK_Educations_Degrees" FromRole="Education" ToRole="Degree" />
+    <NavigationProperty Name="SchoolName" Relationship="PDSModel.FK_Educations_SchoolNames" FromRole="Education" ToRole="SchoolName" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Educations_Personnels" FromRole="Education" ToRole="Personnel" />
+  </EntityType>
+  <Association Name="FK_Educations_Degrees">
+    <End Type="PDSModel.Degree" Role="Degree" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Education" Role="Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degree">
+        <PropertyRef Name="DegreeNo" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="DegreeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_SchoolNames">
+    <End Type="PDSModel.SchoolName" Role="SchoolName" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Education" Role="Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolName">
+        <PropertyRef Name="SchoolNo" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="SchoolNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Children">
+    <Key>
+      <PropertyRef Name="ChildrenNo" />
+    </Key>
+    <Property Name="ChildrenNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpouseNo" Type="Int32" />
+    <Property Name="ChildrenLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildrenFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildrenMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChildrenBirthDate" Type="DateTime" Precision="0" />
+    <Property Name="modifieddate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Spous" Relationship="PDSModel.FK_Childrens_Spouses" FromRole="Children" ToRole="Spous" />
+  </EntityType>
+  <Association Name="FK_Childrens_Spouses">
+    <End Type="PDSModel.Spous" Role="Spous" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Children" Role="Children" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spous">
+        <PropertyRef Name="SpouseNo" />
+      </Principal>
+      <Dependent Role="Children">
+        <PropertyRef Name="SpouseNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Detail">
+    <Key>
+      <PropertyRef Name="DetailNo" />
+    </Key>
+    <Property Name="DetailNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="CommunityTaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IssuedAt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IssuedOn" Type="DateTime" Precision="0" />
+    <Property Name="DateAccomplished" Type="DateTime" Precision="0" />
+    <Property Name="Signature" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Thnumbmark" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Details_Personnels" FromRole="Detail" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="QuestionNo" />
+    </Key>
+    <Property Name="QuestionNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <Property Name="Q36A_Yes" Type="Boolean" />
+    <Property Name="Q36B_Yes" Type="Boolean" />
+    <Property Name="Q36A_No" Type="Boolean" />
+    <Property Name="Q36B_No" Type="Boolean" />
+    <Property Name="Q36A_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q36B_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q37A_Yes" Type="Boolean" />
+    <Property Name="Q37A_No" Type="Boolean" />
+    <Property Name="Q37B_Yes" Type="Boolean" />
+    <Property Name="Q37B_No" Type="Boolean" />
+    <Property Name="Q37B_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q38_Yes" Type="Boolean" />
+    <Property Name="Q38_No" Type="Boolean" />
+    <Property Name="Q38_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q39_Yes" Type="Boolean" />
+    <Property Name="Q39_No" Type="Boolean" />
+    <Property Name="Q39_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q40_Yes" Type="Boolean" />
+    <Property Name="Q40_No" Type="Boolean" />
+    <Property Name="Q40_YesDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Q41A_Yes" Type="Boolean" />
+    <Property Name="Q41A_No" Type="Boolean" />
+    <Property Name="Q41A_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q41B_Yes" Type="Boolean" />
+    <Property Name="Q41B_No" Type="Boolean" />
+    <Property Name="Q41B_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q41C_Yes" Type="Boolean" />
+    <Property Name="Q41C_No" Type="Boolean" />
+    <Property Name="Q41C_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Q37A_YesDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_Questions_Personnels" FromRole="Question" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Reference">
+    <Key>
+      <PropertyRef Name="ReferenceNo" />
+    </Key>
+    <Property Name="ReferenceNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PersonnelNo" Type="Int32" Nullable="false" />
+    <Property Name="ReferenceName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceTelNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferenceIsAcive" Type="Boolean" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_References_Personnels" FromRole="Reference" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserNo" />
+    </Key>
+    <Property Name="UserNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Personnel">
+    <Key>
+      <PropertyRef Name="PersonnelNo" />
+    </Key>
+    <Property Name="PersonnelNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CSIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PersonnelIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SurName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SuffixName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ResidentialAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ResidentialZipCode" Type="Int32" />
+    <Property Name="ResidentialtelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PermanentAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PermanentZipCode" Type="Int32" />
+    <Property Name="PermanentTelephoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="PlaceOfBirth" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CivilStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Height" Type="Double" />
+    <Property Name="Weight" Type="Double" />
+    <Property Name="BloodType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="GSISIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PagIbigIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhiliHealthIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SSSIdNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FatherFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FatherMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FatherLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotherFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotherMiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotherLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotherMaidenName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CellphoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="BarcodeImage" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="guid" Type="Guid" />
+    <Property Name="datemodified" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Details" Relationship="PDSModel.FK_Details_Personnels" FromRole="Personnel" ToRole="Detail" />
+    <NavigationProperty Name="Questions" Relationship="PDSModel.FK_Questions_Personnels" FromRole="Personnel" ToRole="Question" />
+    <NavigationProperty Name="References" Relationship="PDSModel.FK_References_Personnels" FromRole="Personnel" ToRole="Reference" />
+    <NavigationProperty Name="Educations" Relationship="PDSModel.FK_Educations_Personnels" FromRole="Personnel" ToRole="Education" />
+    <NavigationProperty Name="Distinctions" Relationship="PDSModel.FK_Distinctions_Personnels" FromRole="Personnel" ToRole="Distinction" />
+    <NavigationProperty Name="Eligibilities" Relationship="PDSModel.FK_Eligibilities_Personnels" FromRole="Personnel" ToRole="Eligibility" />
+    <NavigationProperty Name="Experiencies" Relationship="PDSModel.FK_Experiencies_Personnels" FromRole="Personnel" ToRole="Experiency" />
+    <NavigationProperty Name="Organizations" Relationship="PDSModel.FK_Organizations_Personnels" FromRole="Personnel" ToRole="Organization" />
+    <NavigationProperty Name="Skills" Relationship="PDSModel.FK_Skills_Personnels" FromRole="Personnel" ToRole="Skill" />
+    <NavigationProperty Name="Trainings" Relationship="PDSModel.FK_Trainings_Personnels" FromRole="Personnel" ToRole="Training" />
+    <NavigationProperty Name="Voluntaries" Relationship="PDSModel.FK_Voluntaries_Personnels" FromRole="Personnel" ToRole="Voluntary" />
+    <NavigationProperty Name="Addresses" Relationship="PDSModel.FK_Address_Personnels" FromRole="Personnel" ToRole="Address" />
+    <NavigationProperty Name="Spouses" Relationship="PDSModel.FK_Spouses_Personnels" FromRole="Personnel" ToRole="Spous" />
+    <NavigationProperty Name="LeaveOffices" Relationship="PDSModel.FK_LeaveOffice_Personnels" FromRole="Personnel" ToRole="LeaveOffice" />
+    <NavigationProperty Name="LeaveApplications" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="Personnel" ToRole="LeaveApplication" />
+  </EntityType>
+  <Association Name="FK_Details_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Detail" Role="Detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Detail">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Question" Role="Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_References_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Reference" Role="Reference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Reference">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Education" Role="Education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Education">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Distinctions_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Distinction" Role="Distinction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Distinction">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Eligibilities_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Eligibility" Role="Eligibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Eligibility">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Experiencies_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Experiency" Role="Experiency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Experiency">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organizations_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Organization" Role="Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Organization">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skills_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Skill" Role="Skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Skill">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainings_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Training" Role="Training" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Training">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voluntaries_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Voluntary" Role="Voluntary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Voluntary">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Address" Role="Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spouses_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.Spous" Role="Spous" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Spous">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LeaveOffice">
+    <Key>
+      <PropertyRef Name="LeaveOfficeNo" />
+    </Key>
+    <Property Name="LeaveOfficeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateFiled" Type="DateTime" Precision="0" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BasicSalary" Type="Double" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveOffice_Personnels" FromRole="LeaveOffice" ToRole="Personnel" />
+    <Property Name="OfficeAgency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_LeaveOffice_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveOffice" Role="LeaveOffice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="LeaveOffice">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LeaveApplication">
+    <Key>
+      <PropertyRef Name="LeaveApplicationNo" />
+    </Key>
+    <Property Name="LeaveApplicationNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateApplied" Type="DateTime" Precision="0" />
+    <Property Name="LeaveTypeNo" Type="Int32" />
+    <Property Name="LeaveNo" Type="Int32" />
+    <Property Name="LeaveSpent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveSpentDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDays" Type="Int32" />
+    <Property Name="LeaveStart" Type="DateTime" Precision="0" />
+    <Property Name="LeaveEnd" Type="DateTime" Precision="0" />
+    <Property Name="Commutation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Recommendation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RecommendationDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveOfficeNo" Type="Int32" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <NavigationProperty Name="Leaf" Relationship="PDSModel.FK_LeaveApplication_Leaves" FromRole="LeaveApplication" ToRole="Leaf" />
+    <NavigationProperty Name="LeaveType" Relationship="PDSModel.FK_LeaveApplication_LeaveTypes" FromRole="LeaveApplication" ToRole="LeaveType" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="LeaveApplication" ToRole="Personnel" />
+  </EntityType>
+  <EntityType Name="Leaf">
+    <Key>
+      <PropertyRef Name="LeaveNo" />
+    </Key>
+    <Property Name="LeaveNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LeaveApplications" Relationship="PDSModel.FK_LeaveApplication_Leaves" FromRole="Leaf" ToRole="LeaveApplication" />
+  </EntityType>
+  <EntityType Name="LeaveType">
+    <Key>
+      <PropertyRef Name="LeaveTypeNo" />
+    </Key>
+    <Property Name="LeaveTypeNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LeaveApplications" Relationship="PDSModel.FK_LeaveApplication_LeaveTypes" FromRole="LeaveType" ToRole="LeaveApplication" />
+  </EntityType>
+  <Association Name="FK_LeaveApplication_Leaves">
+    <End Type="PDSModel.Leaf" Role="Leaf" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leaf">
+        <PropertyRef Name="LeaveNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="LeaveNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveApplication_LeaveTypes">
+    <End Type="PDSModel.LeaveType" Role="LeaveType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveType">
+        <PropertyRef Name="LeaveTypeNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="LeaveTypeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveApplication_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

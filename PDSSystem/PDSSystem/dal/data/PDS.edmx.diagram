@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36f91b13683840fcb9db43c33a75309e" Name="Diagram1" ZoomLevel="51">
+        <EntityTypeShape EntityType="PDSModel.Degree" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.SchoolName" Width="1.5" PointX="3.75" PointY="35.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Distinction" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Eligibility" Width="1.5" PointX="3" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Experiency" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Organization" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Skill" Width="1.5" PointX="3" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Training" Width="1.5" PointX="3" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Voluntary" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Address" Width="1.5" PointX="6" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.AddressType" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Municipality" Width="1.5" PointX="3.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Province" Width="1.5" PointX="1.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Region" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PDSModel.Spous" Width="1.5" PointX="3" PointY="38.625" IsExpanded="true" />
+        <AssociationConnector Association="PDSModel.FK_Address_AddressTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="PDSModel.FK_Address_Municipalities" ManuallyRouted="false" />
+        <AssociationConnector Association="PDSModel.FK_Municipalities_Provinces" ManuallyRouted="false" />
+        <AssociationConnector Association="PDSModel.FK_Provinces_Regions" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PDSModel.Education" Width="1.5" PointX="6" PointY="18.375" />
+        <AssociationConnector Association="PDSModel.FK_Educations_Degrees" />
+        <AssociationConnector Association="PDSModel.FK_Educations_SchoolNames" />
+        <EntityTypeShape EntityType="PDSModel.Children" Width="1.5" PointX="5.25" PointY="39.125" />
+        <AssociationConnector Association="PDSModel.FK_Childrens_Spouses" />
+        <EntityTypeShape EntityType="PDSModel.Detail" Width="1.5" PointX="3" PointY="43" />
+        <EntityTypeShape EntityType="PDSModel.Question" Width="1.5" PointX="3" PointY="49.875" />
+        <EntityTypeShape EntityType="PDSModel.Reference" Width="1.5" PointX="3" PointY="46.75" />
+        <EntityTypeShape EntityType="PDSModel.User" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="PDSModel.Personnel" Width="1.5" PointX="0.75" PointY="28.75" />
+        <AssociationConnector Association="PDSModel.FK_Details_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Questions_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_References_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Educations_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Distinctions_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Eligibilities_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Experiencies_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Organizations_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Skills_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Trainings_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Voluntaries_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Address_Personnels" />
+        <AssociationConnector Association="PDSModel.FK_Spouses_Personnels" />
+        <EntityTypeShape EntityType="PDSModel.LeaveOffice" Width="1.5" PointX="3" PointY="59.25" />
+        <AssociationConnector Association="PDSModel.FK_LeaveOffice_Personnels" />
+        <EntityTypeShape EntityType="PDSModel.LeaveApplication" Width="1.5" PointX="6" PointY="32.375" />
+        <EntityTypeShape EntityType="PDSModel.Leaf" Width="1.5" PointX="3.75" PointY="62.625" />
+        <EntityTypeShape EntityType="PDSModel.LeaveType" Width="1.5" PointX="3.75" PointY="64.875" />
+        <AssociationConnector Association="PDSModel.FK_LeaveApplication_Leaves" />
+        <AssociationConnector Association="PDSModel.FK_LeaveApplication_LeaveTypes" />
+        <AssociationConnector Association="PDSModel.FK_LeaveApplication_Personnels" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

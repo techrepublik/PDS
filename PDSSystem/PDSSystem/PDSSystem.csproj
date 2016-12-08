@@ -1,0 +1,478 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{38198759-2A5C-414B-A90C-641B71D38315}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDSSystem</RootNamespace>
+    <AssemblyName>PDSSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\barcode_bin\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dal\classes\ChildrenObj.cs" />
+    <Compile Include="dal\classes\EducationObj.cs" />
+    <Compile Include="dal\classes\EmployeeObj.cs" />
+    <Compile Include="dal\classes\LeaveObj.cs" />
+    <Compile Include="dal\classes\UtilityClass.cs" />
+    <Compile Include="dal\data\Address.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\AddressType.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Children.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Degree.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Detail.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Distinction.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Education.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Eligibility.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Experiency.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Leaf.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\LeaveApplication.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\LeaveOffice.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\LeaveType.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Municipality.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Organization.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Parent.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\PDS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\PDS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\PDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Personnel.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Province.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Question.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Reference.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Region.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\SchoolName.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Skill.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Spous.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Training.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\User.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\data\Voluntary.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dal\man\AddressManagement.cs" />
+    <Compile Include="dal\man\AddressTypeManagement.cs" />
+    <Compile Include="dal\man\ChildrenManagement.cs" />
+    <Compile Include="dal\man\DegreesManagement.cs" />
+    <Compile Include="dal\man\Details.cs" />
+    <Compile Include="dal\man\DistinctionManagement.cs" />
+    <Compile Include="dal\man\EducationManagement.cs" />
+    <Compile Include="dal\man\EligibilityManagement.cs" />
+    <Compile Include="dal\man\ExperienceManagement.cs" />
+    <Compile Include="dal\man\LeaveApplicationManagement.cs" />
+    <Compile Include="dal\man\LeaveManagement.cs" />
+    <Compile Include="dal\man\LeaveOfficeManagement.cs" />
+    <Compile Include="dal\man\LeaveTypeManagement.cs" />
+    <Compile Include="dal\man\MunicipalityManagement.cs" />
+    <Compile Include="dal\man\OrganizationManagement.cs" />
+    <Compile Include="dal\man\PersonnelManagement.cs" />
+    <Compile Include="dal\man\ProvinceManagement.cs" />
+    <Compile Include="dal\man\QuestionManagement.cs" />
+    <Compile Include="dal\man\ReferencesManagement.cs" />
+    <Compile Include="dal\man\RegionManagement.cs" />
+    <Compile Include="dal\man\SchoolNameManagement.cs" />
+    <Compile Include="dal\man\SkillManagement.cs" />
+    <Compile Include="dal\man\SpouseManagement.cs" />
+    <Compile Include="dal\man\TrainingManagement.cs" />
+    <Compile Include="dal\man\UserManagement.cs" />
+    <Compile Include="dal\man\VoluntaryManagement.cs" />
+    <Compile Include="dal\quer\StaticClass.cs" />
+    <Compile Include="dal\repo\DataRepository.cs" />
+    <Compile Include="dal\repo\IDataRepository.cs" />
+    <Compile Include="form\EducationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\EducationForm.Designer.cs">
+      <DependentUpon>EducationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\EligibilityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\EligibilityForm.Designer.cs">
+      <DependentUpon>EligibilityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\EmployeeListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\EmployeeListForm.Designer.cs">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeaveAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveAppForm.Designer.cs">
+      <DependentUpon>LeaveAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeaveApplicationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveApplicationForm.Designer.cs">
+      <DependentUpon>LeaveApplicationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveForm.Designer.cs">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeaveOfficeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveOfficeForm.Designer.cs">
+      <DependentUpon>LeaveOfficeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeavePreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeavePreferencesForm.Designer.cs">
+      <DependentUpon>LeavePreferencesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\PreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\PreferencesForm.Designer.cs">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\QuestionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\QuestionForm.Designer.cs">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\ReportPDSForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\ReportPDSForm.Designer.cs">
+      <DependentUpon>ReportPDSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\SpouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\SpouseForm.Designer.cs">
+      <DependentUpon>SpouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\SummaryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\SummaryListForm.Designer.cs">
+      <DependentUpon>SummaryListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\TrainingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\TrainingForm.Designer.cs">
+      <DependentUpon>TrainingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\VoluntaryWorkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\VoluntaryWorkForm.Designer.cs">
+      <DependentUpon>VoluntaryWorkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\WizardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\WizardForm.Designer.cs">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\WorkExperienceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\WorkExperienceForm.Designer.cs">
+      <DependentUpon>WorkExperienceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form\EducationForm.resx">
+      <DependentUpon>EducationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\EligibilityForm.resx">
+      <DependentUpon>EligibilityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\EmployeeListForm.resx">
+      <DependentUpon>EmployeeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveAppForm.resx">
+      <DependentUpon>LeaveAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveApplicationForm.resx">
+      <DependentUpon>LeaveApplicationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveForm.resx">
+      <DependentUpon>LeaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveOfficeForm.resx">
+      <DependentUpon>LeaveOfficeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeavePreferencesForm.resx">
+      <DependentUpon>LeavePreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\PreferencesForm.resx">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\QuestionForm.resx">
+      <DependentUpon>QuestionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\ReportPDSForm.resx">
+      <DependentUpon>ReportPDSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\SpouseForm.resx">
+      <DependentUpon>SpouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\SummaryListForm.resx">
+      <DependentUpon>SummaryListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\TrainingForm.resx">
+      <DependentUpon>TrainingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\VoluntaryWorkForm.resx">
+      <DependentUpon>VoluntaryWorkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\WizardForm.resx">
+      <DependentUpon>WizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\WorkExperienceForm.resx">
+      <DependentUpon>WorkExperienceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="report\PDSReport.rdlc" />
+    <EntityDeploy Include="dal\data\PDS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PDS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="dal\data\PDS.edmx.diagram">
+      <DependentUpon>PDS.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\PDSSystem.dal.classes.ChildrenObj.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.classes.EducationObj.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.classes.EmployeeObj.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.classes.LeaveObj.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Address.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.AddressType.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Children.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Degree.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Detail.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Distinction.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Education.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Eligibility.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Experiency.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Leaf.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveApplication.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveOffice.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveType.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Municipality.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Organization.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Personnel.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Province.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Question.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Reference.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Region.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.SchoolName.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Skill.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Spous.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Training.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.User.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.Voluntary.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UtilityManager\UtilityManager.csproj">
+      <Project>{52F42C75-B40E-4FCA-9C57-3DAB29618A30}</Project>
+      <Name>UtilityManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dal\data\PDS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PDS.edmx</DependentUpon>
+      <LastGenOutput>PDS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="dal\data\PDS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PDS.edmx</DependentUpon>
+      <LastGenOutput>PDS.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\Pics 1.ico" />
+    <None Include="Resources\Compose Email.ico" />
+    <None Include="Resources\Search1.ico" />
+    <None Include="Resources\Contacts 2.ico" />
+    <None Include="Resources\Download.ico" />
+    <None Include="Resources\Printer 3.ico" />
+    <None Include="Resources\Search.ico" />
+    <None Include="Resources\logo_talibon.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

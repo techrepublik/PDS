@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PDSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Details">
+    <Key>
+      <PropertyRef Name="DetailNo" />
+    </Key>
+    <Property Name="DetailNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="CommunityTaxNo" Type="varchar" MaxLength="50" />
+    <Property Name="IssuedAt" Type="varchar(max)" />
+    <Property Name="IssuedOn" Type="date" />
+    <Property Name="DateAccomplished" Type="date" />
+    <Property Name="Signature" Type="image" />
+    <Property Name="Thnumbmark" Type="image" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="LeaveApplication">
+    <Key>
+      <PropertyRef Name="LeaveApplicationNo" />
+    </Key>
+    <Property Name="LeaveApplicationNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateApplied" Type="date" />
+    <Property Name="LeaveTypeNo" Type="int" />
+    <Property Name="LeaveNo" Type="int" />
+    <Property Name="LeaveSpent" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveSpentDetail" Type="varchar(max)" />
+    <Property Name="LeaveDays" Type="int" />
+    <Property Name="LeaveStart" Type="date" />
+    <Property Name="LeaveEnd" Type="date" />
+    <Property Name="Commutation" Type="varchar" MaxLength="50" />
+    <Property Name="Recommendation" Type="varchar" MaxLength="50" />
+    <Property Name="RecommendationDetail" Type="varchar(max)" />
+    <Property Name="LeaveOfficeNo" Type="int" />
+    <Property Name="PersonnelNo" Type="int" />
+  </EntityType>
+  <EntityType Name="LeaveOffice">
+    <Key>
+      <PropertyRef Name="LeaveOfficeNo" />
+    </Key>
+    <Property Name="LeaveOfficeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateFiled" Type="date" />
+    <Property Name="Position" Type="varchar" MaxLength="50" />
+    <Property Name="BasicSalary" Type="float" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="OfficeAgency" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Leaves">
+    <Key>
+      <PropertyRef Name="LeaveNo" />
+    </Key>
+    <Property Name="LeaveNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LeaveName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LeaveTypes">
+    <Key>
+      <PropertyRef Name="LeaveTypeNo" />
+    </Key>
+    <Property Name="LeaveTypeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LeaveType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Questions">
+    <Key>
+      <PropertyRef Name="QuestionNo" />
+    </Key>
+    <Property Name="QuestionNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="Q36A_Yes" Type="bit" />
+    <Property Name="Q36B_Yes" Type="bit" />
+    <Property Name="Q36A_No" Type="bit" />
+    <Property Name="Q36B_No" Type="bit" />
+    <Property Name="Q36A_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q36B_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q37A_Yes" Type="bit" />
+    <Property Name="Q37A_No" Type="bit" />
+    <Property Name="Q37A_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q37B_Yes" Type="bit" />
+    <Property Name="Q37B_No" Type="bit" />
+    <Property Name="Q37B_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q38_Yes" Type="bit" />
+    <Property Name="Q38_No" Type="bit" />
+    <Property Name="Q38_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q39_Yes" Type="bit" />
+    <Property Name="Q39_No" Type="bit" />
+    <Property Name="Q39_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q40_Yes" Type="bit" />
+    <Property Name="Q40_No" Type="bit" />
+    <Property Name="Q40_YesDetails" Type="varchar" MaxLength="50" />
+    <Property Name="Q41A_Yes" Type="bit" />
+    <Property Name="Q41A_No" Type="bit" />
+    <Property Name="Q41A_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q41B_Yes" Type="bit" />
+    <Property Name="Q41B_No" Type="bit" />
+    <Property Name="Q41B_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="Q41C_Yes" Type="bit" />
+    <Property Name="Q41C_No" Type="bit" />
+    <Property Name="Q41C_YesDetails" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="References">
+    <Key>
+      <PropertyRef Name="ReferenceNo" />
+    </Key>
+    <Property Name="ReferenceNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" Nullable="false" />
+    <Property Name="ReferenceName" Type="varchar" MaxLength="200" />
+    <Property Name="ReferenceAddress" Type="varchar(max)" />
+    <Property Name="ReferenceTelNo" Type="varchar" MaxLength="50" />
+    <Property Name="ReferenceIsAcive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserNo" />
+    </Key>
+    <Property Name="UserNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="UserLevel" Type="nchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Degrees">
+    <Key>
+      <PropertyRef Name="DegreeNo" />
+    </Key>
+    <Property Name="DegreeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DegreeName" Type="varchar" MaxLength="200" />
+    <Property Name="DegreeShortName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Educations">
+    <Key>
+      <PropertyRef Name="EducationNo" />
+    </Key>
+    <Property Name="EducationNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="EducationLevelNo" Type="varchar" MaxLength="50" />
+    <Property Name="SchoolNo" Type="int" />
+    <Property Name="DegreeNo" Type="int" />
+    <Property Name="YearGraduated" Type="varchar" MaxLength="10" />
+    <Property Name="HighestLevelEarned" Type="varchar" MaxLength="10" />
+    <Property Name="InclusiveDate1" Type="date" />
+    <Property Name="InclusiveDate2" Type="date" />
+    <Property Name="ScholarshipHonor" Type="varchar" MaxLength="50" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SchoolNames">
+    <Key>
+      <PropertyRef Name="SchoolNo" />
+    </Key>
+    <Property Name="SchoolNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolName" Type="varchar" MaxLength="200" />
+    <Property Name="SchoolShortName" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Distinctions">
+    <Key>
+      <PropertyRef Name="DistinctionNo" />
+    </Key>
+    <Property Name="DistinctionNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="DistinctionName" Type="varchar" MaxLength="100" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Eligibilities">
+    <Key>
+      <PropertyRef Name="EligibilityNo" />
+    </Key>
+    <Property Name="EligibilityNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="EligibilityName" Type="varchar" MaxLength="200" />
+    <Property Name="EligibilityRating" Type="varchar" MaxLength="50" />
+    <Property Name="EligibilityExamDate" Type="date" />
+    <Property Name="EligibilityExamPlace" Type="varchar" MaxLength="200" />
+    <Property Name="EligibilityLicenseNo" Type="varchar" MaxLength="50" />
+    <Property Name="EligibilityLicenseDate" Type="date" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Experiencies">
+    <Key>
+      <PropertyRef Name="ExperienceNo" />
+    </Key>
+    <Property Name="ExperienceNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="ExperienceDate1" Type="date" />
+    <Property Name="ExperienceDate2" Type="date" />
+    <Property Name="ExperiencePosition" Type="varchar" MaxLength="50" />
+    <Property Name="ExperienceOffice" Type="varchar" MaxLength="50" />
+    <Property Name="ExperienceSalary" Type="float" />
+    <Property Name="ExperienceSalaryGrade" Type="varchar" MaxLength="10" />
+    <Property Name="ExperienceStatus" Type="varchar" MaxLength="50" />
+    <Property Name="ExperienceIsGovernment" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="OrganizationNo" />
+    </Key>
+    <Property Name="OrganizationNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="OrganizationName" Type="varchar(max)" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Skills">
+    <Key>
+      <PropertyRef Name="SkillNo" />
+    </Key>
+    <Property Name="SkillNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="SkillName" Type="varchar" MaxLength="50" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Trainings">
+    <Key>
+      <PropertyRef Name="TrainingNo" />
+    </Key>
+    <Property Name="TrainingNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="TrainingName" Type="varchar" MaxLength="200" />
+    <Property Name="TrainingDate1" Type="date" />
+    <Property Name="TrainingDate2" Type="date" />
+    <Property Name="TrainingNoHours" Type="float" />
+    <Property Name="TrainingSponsor" Type="varchar" MaxLength="200" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Voluntaries">
+    <Key>
+      <PropertyRef Name="VoluntaryNo" />
+    </Key>
+    <Property Name="VoluntaryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="VoluntaryOrganization" Type="varchar" MaxLength="200" />
+    <Property Name="VoluntaryDate1" Type="date" />
+    <Property Name="VoluntaryDate2" Type="date" />
+    <Property Name="VoluntaryNoHours" Type="float" />
+    <Property Name="VoluntaryPosition" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressNo" />
+    </Key>
+    <Property Name="AddressNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="AddressTypeNo" Type="int" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="100" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="100" />
+    <Property Name="MunicipalityNo" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AddressTypes">
+    <Key>
+      <PropertyRef Name="AddressTypeNo" />
+    </Key>
+    <Property Name="AddressTypeNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressTypeName" Type="varchar" MaxLength="50" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Childrens">
+    <Key>
+      <PropertyRef Name="ChildrenNo" />
+    </Key>
+    <Property Name="ChildrenNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpouseNo" Type="int" />
+    <Property Name="ChildrenLastName" Type="varchar" MaxLength="50" />
+    <Property Name="ChildrenFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ChildrenMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="ChildrenBirthDate" Type="date" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Municipalities">
+    <Key>
+      <PropertyRef Name="MunicipalityNo" />
+    </Key>
+    <Property Name="MunicipalityNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MunicipalityName" Type="varchar" MaxLength="50" />
+    <Property Name="MunicipalityPostalCode" Type="varchar" MaxLength="10" />
+    <Property Name="ProvinceNo" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="datemodified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Parents">
+    <Key>
+      <PropertyRef Name="ParentNo" />
+    </Key>
+    <Property Name="ParentNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="ParentFatherSurName" Type="varchar" MaxLength="50" />
+    <Property Name="ParentFatherFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ParentFatherMiddeName" Type="varchar" MaxLength="50" />
+    <Property Name="ParentMotherSurName" Type="varchar" MaxLength="50" />
+    <Property Name="ParentMotherFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="ParentMotherMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Personnels">
+    <Key>
+      <PropertyRef Name="PersonnelNo" />
+    </Key>
+    <Property Name="PersonnelNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CSIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="PersonnelIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="SurName" Type="varchar" MaxLength="50" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="SuffixName" Type="varchar" MaxLength="50" />
+    <Property Name="ResidentialAddress" Type="varchar(max)" />
+    <Property Name="ResidentialZipCode" Type="int" />
+    <Property Name="ResidentialtelephoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="PermanentAddress" Type="varchar(max)" />
+    <Property Name="PermanentZipCode" Type="int" />
+    <Property Name="PermanentTelephoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="PlaceOfBirth" Type="varchar" MaxLength="200" />
+    <Property Name="Sex" Type="varchar" MaxLength="10" />
+    <Property Name="CivilStatus" Type="varchar" MaxLength="50" />
+    <Property Name="Citizenship" Type="varchar" MaxLength="50" />
+    <Property Name="Height" Type="float" />
+    <Property Name="Weight" Type="float" />
+    <Property Name="BloodType" Type="varchar" MaxLength="10" />
+    <Property Name="GSISIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="PagIbigIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="PhiliHealthIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="SSSIdNo" Type="varchar" MaxLength="50" />
+    <Property Name="FatherFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="FatherMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="FatherLastName" Type="varchar" MaxLength="50" />
+    <Property Name="MotherFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="MotherMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="MotherLastName" Type="varchar" MaxLength="50" />
+    <Property Name="MotherMaidenName" Type="varchar" MaxLength="50" />
+    <Property Name="TIN" Type="varchar" MaxLength="50" />
+    <Property Name="EmailAddress" Type="varchar(max)" />
+    <Property Name="CellphoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="Photo" Type="image" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="BarcodeImage" Type="image" />
+    <Property Name="guid" Type="uniqueidentifier" />
+    <Property Name="datemodified" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="ProvinceNo" />
+    </Key>
+    <Property Name="ProvinceNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProvinceName" Type="varchar" MaxLength="100" />
+    <Property Name="RegionNo" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Regions">
+    <Key>
+      <PropertyRef Name="RegionNo" />
+    </Key>
+    <Property Name="RegionNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegionName" Type="varchar" MaxLength="50" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Spouses">
+    <Key>
+      <PropertyRef Name="SpouseNo" />
+    </Key>
+    <Property Name="SpouseNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonnelNo" Type="int" />
+    <Property Name="SpouseSurName" Type="varchar" MaxLength="50" />
+    <Property Name="SpouseFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="SpouseMiddleName" Type="varchar" MaxLength="50" />
+    <Property Name="Occupation" Type="varchar" MaxLength="50" />
+    <Property Name="Employer" Type="varchar" MaxLength="150" />
+    <Property Name="EmployerAddress" Type="varchar" MaxLength="50" />
+    <Property Name="TelephoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="modifieddate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Address_AddressTypes">
+    <End Role="AddressTypes" Type="Self.AddressTypes" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AddressTypes">
+        <PropertyRef Name="AddressTypeNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="AddressTypeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_Municipalities">
+    <End Role="Municipalities" Type="Self.Municipalities" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Municipalities">
+        <PropertyRef Name="MunicipalityNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="MunicipalityNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Address_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Address" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Address">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Childrens_Spouses">
+    <End Role="Spouses" Type="Self.Spouses" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Childrens" Type="Self.Childrens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spouses">
+        <PropertyRef Name="SpouseNo" />
+      </Principal>
+      <Dependent Role="Childrens">
+        <PropertyRef Name="SpouseNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Details_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Details" Type="Self.Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Details">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Distinctions_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Distinctions" Type="Self.Distinctions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Distinctions">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_Degrees">
+    <End Role="Degrees" Type="Self.Degrees" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Degrees">
+        <PropertyRef Name="DegreeNo" />
+      </Principal>
+      <Dependent Role="Educations">
+        <PropertyRef Name="DegreeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Educations">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Educations_SchoolNames">
+    <End Role="SchoolNames" Type="Self.SchoolNames" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Educations" Type="Self.Educations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolNames">
+        <PropertyRef Name="SchoolNo" />
+      </Principal>
+      <Dependent Role="Educations">
+        <PropertyRef Name="SchoolNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Eligibilities_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Eligibilities" Type="Self.Eligibilities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Eligibilities">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Experiencies_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Experiencies" Type="Self.Experiencies" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Experiencies">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveApplication_Leaves">
+    <End Role="Leaves" Type="Self.Leaves" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Leaves">
+        <PropertyRef Name="LeaveNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="LeaveNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveApplication_LeaveTypes">
+    <End Role="LeaveTypes" Type="Self.LeaveTypes" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveTypes">
+        <PropertyRef Name="LeaveTypeNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="LeaveTypeNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveApplication_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="LeaveApplication">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Municipalities_Provinces">
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Municipalities" Type="Self.Municipalities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provinces">
+        <PropertyRef Name="ProvinceNo" />
+      </Principal>
+      <Dependent Role="Municipalities">
+        <PropertyRef Name="ProvinceNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organizations_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Organizations">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Provinces_Regions">
+    <End Role="Regions" Type="Self.Regions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Provinces" Type="Self.Provinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regions">
+        <PropertyRef Name="RegionNo" />
+      </Principal>
+      <Dependent Role="Provinces">
+        <PropertyRef Name="RegionNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_References_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="References" Type="Self.References" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="References">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Skills_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Skills">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Spouses_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Spouses" Type="Self.Spouses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Spouses">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Trainings_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Trainings" Type="Self.Trainings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Trainings">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Voluntaries_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Voluntaries" Type="Self.Voluntaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
+      </Principal>
+      <Dependent Role="Voluntaries">
+        <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PDSModelStoreContainer">
+    <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveApplication" EntityType="Self.LeaveApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveOffice" EntityType="Self.LeaveOffice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Leaves" EntityType="Self.Leaves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveTypes" EntityType="Self.LeaveTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="References" EntityType="Self.References" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Degrees" EntityType="Self.Degrees" Schema="Education" store:Type="Tables" />
+    <EntitySet Name="Educations" EntityType="Self.Educations" Schema="Education" store:Type="Tables" />
+    <EntitySet Name="SchoolNames" EntityType="Self.SchoolNames" Schema="Education" store:Type="Tables" />
+    <EntitySet Name="Distinctions" EntityType="Self.Distinctions" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Eligibilities" EntityType="Self.Eligibilities" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Experiencies" EntityType="Self.Experiencies" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Skills" EntityType="Self.Skills" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Trainings" EntityType="Self.Trainings" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Voluntaries" EntityType="Self.Voluntaries" Schema="Others" store:Type="Tables" />
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="AddressTypes" EntityType="Self.AddressTypes" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Childrens" EntityType="Self.Childrens" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Municipalities" EntityType="Self.Municipalities" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Parents" EntityType="Self.Parents" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Personnels" EntityType="Self.Personnels" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Regions" EntityType="Self.Regions" Schema="Personnel" store:Type="Tables" />
+    <EntitySet Name="Spouses" EntityType="Self.Spouses" Schema="Personnel" store:Type="Tables" />
+    <AssociationSet Name="FK_Address_AddressTypes" Association="Self.FK_Address_AddressTypes">
+      <End Role="AddressTypes" EntitySet="AddressTypes" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_Municipalities" Association="Self.FK_Address_Municipalities">
+      <End Role="Municipalities" EntitySet="Municipalities" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Address_Personnels" Association="Self.FK_Address_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Address" EntitySet="Address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Childrens_Spouses" Association="Self.FK_Childrens_Spouses">
+      <End Role="Spouses" EntitySet="Spouses" />
+      <End Role="Childrens" EntitySet="Childrens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Details_Personnels" Association="Self.FK_Details_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Details" EntitySet="Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Distinctions_Personnels" Association="Self.FK_Distinctions_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Distinctions" EntitySet="Distinctions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_Degrees" Association="Self.FK_Educations_Degrees">
+      <End Role="Degrees" EntitySet="Degrees" />
+      <End Role="Educations" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_Personnels" Association="Self.FK_Educations_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Educations" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Educations_SchoolNames" Association="Self.FK_Educations_SchoolNames">
+      <End Role="SchoolNames" EntitySet="SchoolNames" />
+      <End Role="Educations" EntitySet="Educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Eligibilities_Personnels" Association="Self.FK_Eligibilities_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Eligibilities" EntitySet="Eligibilities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Experiencies_Personnels" Association="Self.FK_Experiencies_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Experiencies" EntitySet="Experiencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveApplication_Leaves" Association="Self.FK_LeaveApplication_Leaves">
+      <End Role="Leaves" EntitySet="Leaves" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveApplication_LeaveTypes" Association="Self.FK_LeaveApplication_LeaveTypes">
+      <End Role="LeaveTypes" EntitySet="LeaveTypes" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveApplication_Personnels" Association="Self.FK_LeaveApplication_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Municipalities_Provinces" Association="Self.FK_Municipalities_Provinces">
+      <End Role="Provinces" EntitySet="Provinces" />
+      <End Role="Municipalities" EntitySet="Municipalities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organizations_Personnels" Association="Self.FK_Organizations_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Organizations" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Provinces_Regions" Association="Self.FK_Provinces_Regions">
+      <End Role="Regions" EntitySet="Regions" />
+      <End Role="Provinces" EntitySet="Provinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_Personnels" Association="Self.FK_Questions_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_References_Personnels" Association="Self.FK_References_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="References" EntitySet="References" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Skills_Personnels" Association="Self.FK_Skills_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Skills" EntitySet="Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Spouses_Personnels" Association="Self.FK_Spouses_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Spouses" EntitySet="Spouses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Trainings_Personnels" Association="Self.FK_Trainings_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Trainings" EntitySet="Trainings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Voluntaries_Personnels" Association="Self.FK_Voluntaries_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
+      <End Role="Voluntaries" EntitySet="Voluntaries" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

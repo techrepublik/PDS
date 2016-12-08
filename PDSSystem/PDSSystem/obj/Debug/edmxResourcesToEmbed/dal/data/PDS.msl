@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PDSModelStoreContainer" CdmEntityContainer="PDSEntities">
+    <EntitySetMapping Name="Degrees">
+      <EntityTypeMapping TypeName="PDSModel.Degree">
+        <MappingFragment StoreEntitySet="Degrees">
+          <ScalarProperty Name="DegreeNo" ColumnName="DegreeNo" />
+          <ScalarProperty Name="DegreeName" ColumnName="DegreeName" />
+          <ScalarProperty Name="DegreeShortName" ColumnName="DegreeShortName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolNames">
+      <EntityTypeMapping TypeName="PDSModel.SchoolName">
+        <MappingFragment StoreEntitySet="SchoolNames">
+          <ScalarProperty Name="SchoolNo" ColumnName="SchoolNo" />
+          <ScalarProperty Name="SchoolName1" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolShortName" ColumnName="SchoolShortName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Distinctions">
+      <EntityTypeMapping TypeName="PDSModel.Distinction">
+        <MappingFragment StoreEntitySet="Distinctions">
+          <ScalarProperty Name="DistinctionNo" ColumnName="DistinctionNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="DistinctionName" ColumnName="DistinctionName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Eligibilities">
+      <EntityTypeMapping TypeName="PDSModel.Eligibility">
+        <MappingFragment StoreEntitySet="Eligibilities">
+          <ScalarProperty Name="EligibilityNo" ColumnName="EligibilityNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="EligibilityName" ColumnName="EligibilityName" />
+          <ScalarProperty Name="EligibilityRating" ColumnName="EligibilityRating" />
+          <ScalarProperty Name="EligibilityExamDate" ColumnName="EligibilityExamDate" />
+          <ScalarProperty Name="EligibilityExamPlace" ColumnName="EligibilityExamPlace" />
+          <ScalarProperty Name="EligibilityLicenseNo" ColumnName="EligibilityLicenseNo" />
+          <ScalarProperty Name="EligibilityLicenseDate" ColumnName="EligibilityLicenseDate" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Experiencies">
+      <EntityTypeMapping TypeName="PDSModel.Experiency">
+        <MappingFragment StoreEntitySet="Experiencies">
+          <ScalarProperty Name="ExperienceNo" ColumnName="ExperienceNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="ExperienceDate1" ColumnName="ExperienceDate1" />
+          <ScalarProperty Name="ExperienceDate2" ColumnName="ExperienceDate2" />
+          <ScalarProperty Name="ExperiencePosition" ColumnName="ExperiencePosition" />
+          <ScalarProperty Name="ExperienceOffice" ColumnName="ExperienceOffice" />
+          <ScalarProperty Name="ExperienceSalary" ColumnName="ExperienceSalary" />
+          <ScalarProperty Name="ExperienceSalaryGrade" ColumnName="ExperienceSalaryGrade" />
+          <ScalarProperty Name="ExperienceStatus" ColumnName="ExperienceStatus" />
+          <ScalarProperty Name="ExperienceIsGovernment" ColumnName="ExperienceIsGovernment" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="PDSModel.Organization">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="OrganizationNo" ColumnName="OrganizationNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Skills">
+      <EntityTypeMapping TypeName="PDSModel.Skill">
+        <MappingFragment StoreEntitySet="Skills">
+          <ScalarProperty Name="SkillNo" ColumnName="SkillNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="SkillName" ColumnName="SkillName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainings">
+      <EntityTypeMapping TypeName="PDSModel.Training">
+        <MappingFragment StoreEntitySet="Trainings">
+          <ScalarProperty Name="TrainingNo" ColumnName="TrainingNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="TrainingName" ColumnName="TrainingName" />
+          <ScalarProperty Name="TrainingDate1" ColumnName="TrainingDate1" />
+          <ScalarProperty Name="TrainingDate2" ColumnName="TrainingDate2" />
+          <ScalarProperty Name="TrainingNoHours" ColumnName="TrainingNoHours" />
+          <ScalarProperty Name="TrainingSponsor" ColumnName="TrainingSponsor" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Voluntaries">
+      <EntityTypeMapping TypeName="PDSModel.Voluntary">
+        <MappingFragment StoreEntitySet="Voluntaries">
+          <ScalarProperty Name="VoluntaryNo" ColumnName="VoluntaryNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="VoluntaryOrganization" ColumnName="VoluntaryOrganization" />
+          <ScalarProperty Name="VoluntaryDate1" ColumnName="VoluntaryDate1" />
+          <ScalarProperty Name="VoluntaryDate2" ColumnName="VoluntaryDate2" />
+          <ScalarProperty Name="VoluntaryNoHours" ColumnName="VoluntaryNoHours" />
+          <ScalarProperty Name="VoluntaryPosition" ColumnName="VoluntaryPosition" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="PDSModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="AddressNo" ColumnName="AddressNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="AddressTypeNo" ColumnName="AddressTypeNo" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="MunicipalityNo" ColumnName="MunicipalityNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AddressTypes">
+      <EntityTypeMapping TypeName="PDSModel.AddressType">
+        <MappingFragment StoreEntitySet="AddressTypes">
+          <ScalarProperty Name="AddressTypeNo" ColumnName="AddressTypeNo" />
+          <ScalarProperty Name="AddressTypeName" ColumnName="AddressTypeName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Municipalities">
+      <EntityTypeMapping TypeName="PDSModel.Municipality">
+        <MappingFragment StoreEntitySet="Municipalities">
+          <ScalarProperty Name="MunicipalityNo" ColumnName="MunicipalityNo" />
+          <ScalarProperty Name="MunicipalityName" ColumnName="MunicipalityName" />
+          <ScalarProperty Name="MunicipalityPostalCode" ColumnName="MunicipalityPostalCode" />
+          <ScalarProperty Name="ProvinceNo" ColumnName="ProvinceNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="datemodified" ColumnName="datemodified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parents">
+      <EntityTypeMapping TypeName="PDSModel.Parent">
+        <MappingFragment StoreEntitySet="Parents">
+          <ScalarProperty Name="ParentNo" ColumnName="ParentNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="ParentFatherSurName" ColumnName="ParentFatherSurName" />
+          <ScalarProperty Name="ParentFatherFirstName" ColumnName="ParentFatherFirstName" />
+          <ScalarProperty Name="ParentFatherMiddeName" ColumnName="ParentFatherMiddeName" />
+          <ScalarProperty Name="ParentMotherSurName" ColumnName="ParentMotherSurName" />
+          <ScalarProperty Name="ParentMotherFirstName" ColumnName="ParentMotherFirstName" />
+          <ScalarProperty Name="ParentMotherMiddleName" ColumnName="ParentMotherMiddleName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="PDSModel.Province">
+        <MappingFragment StoreEntitySet="Provinces">
+          <ScalarProperty Name="ProvinceNo" ColumnName="ProvinceNo" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="RegionNo" ColumnName="RegionNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="PDSModel.Region">
+        <MappingFragment StoreEntitySet="Regions">
+          <ScalarProperty Name="RegionNo" ColumnName="RegionNo" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spouses">
+      <EntityTypeMapping TypeName="PDSModel.Spous">
+        <MappingFragment StoreEntitySet="Spouses">
+          <ScalarProperty Name="SpouseNo" ColumnName="SpouseNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="SpouseSurName" ColumnName="SpouseSurName" />
+          <ScalarProperty Name="SpouseFirstName" ColumnName="SpouseFirstName" />
+          <ScalarProperty Name="SpouseMiddleName" ColumnName="SpouseMiddleName" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Employer" ColumnName="Employer" />
+          <ScalarProperty Name="EmployerAddress" ColumnName="EmployerAddress" />
+          <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Educations">
+      <EntityTypeMapping TypeName="PDSModel.Education">
+        <MappingFragment StoreEntitySet="Educations">
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="ScholarshipHonor" ColumnName="ScholarshipHonor" />
+          <ScalarProperty Name="InclusiveDate2" ColumnName="InclusiveDate2" />
+          <ScalarProperty Name="InclusiveDate1" ColumnName="InclusiveDate1" />
+          <ScalarProperty Name="HighestLevelEarned" ColumnName="HighestLevelEarned" />
+          <ScalarProperty Name="YearGraduated" ColumnName="YearGraduated" />
+          <ScalarProperty Name="DegreeNo" ColumnName="DegreeNo" />
+          <ScalarProperty Name="SchoolNo" ColumnName="SchoolNo" />
+          <ScalarProperty Name="EducationLevelNo" ColumnName="EducationLevelNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="EducationNo" ColumnName="EducationNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Childrens">
+      <EntityTypeMapping TypeName="PDSModel.Children">
+        <MappingFragment StoreEntitySet="Childrens">
+          <ScalarProperty Name="modifieddate" ColumnName="modifieddate" />
+          <ScalarProperty Name="ChildrenBirthDate" ColumnName="ChildrenBirthDate" />
+          <ScalarProperty Name="ChildrenMiddleName" ColumnName="ChildrenMiddleName" />
+          <ScalarProperty Name="ChildrenFirstName" ColumnName="ChildrenFirstName" />
+          <ScalarProperty Name="ChildrenLastName" ColumnName="ChildrenLastName" />
+          <ScalarProperty Name="SpouseNo" ColumnName="SpouseNo" />
+          <ScalarProperty Name="ChildrenNo" ColumnName="ChildrenNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Details">
+      <EntityTypeMapping TypeName="PDSModel.Detail">
+        <MappingFragment StoreEntitySet="Details">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Thnumbmark" ColumnName="Thnumbmark" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="DateAccomplished" ColumnName="DateAccomplished" />
+          <ScalarProperty Name="IssuedOn" ColumnName="IssuedOn" />
+          <ScalarProperty Name="IssuedAt" ColumnName="IssuedAt" />
+          <ScalarProperty Name="CommunityTaxNo" ColumnName="CommunityTaxNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="DetailNo" ColumnName="DetailNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="PDSModel.Question">
+        <MappingFragment StoreEntitySet="Questions">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Q37A_YesDetails" ColumnName="Q37A_YesDetails" />
+          <ScalarProperty Name="Q41C_YesDetails" ColumnName="Q41C_YesDetails" />
+          <ScalarProperty Name="Q41C_No" ColumnName="Q41C_No" />
+          <ScalarProperty Name="Q41C_Yes" ColumnName="Q41C_Yes" />
+          <ScalarProperty Name="Q41B_YesDetails" ColumnName="Q41B_YesDetails" />
+          <ScalarProperty Name="Q41B_No" ColumnName="Q41B_No" />
+          <ScalarProperty Name="Q41B_Yes" ColumnName="Q41B_Yes" />
+          <ScalarProperty Name="Q41A_YesDetails" ColumnName="Q41A_YesDetails" />
+          <ScalarProperty Name="Q41A_No" ColumnName="Q41A_No" />
+          <ScalarProperty Name="Q41A_Yes" ColumnName="Q41A_Yes" />
+          <ScalarProperty Name="Q40_YesDetails" ColumnName="Q40_YesDetails" />
+          <ScalarProperty Name="Q40_No" ColumnName="Q40_No" />
+          <ScalarProperty Name="Q40_Yes" ColumnName="Q40_Yes" />
+          <ScalarProperty Name="Q39_YesDetails" ColumnName="Q39_YesDetails" />
+          <ScalarProperty Name="Q39_No" ColumnName="Q39_No" />
+          <ScalarProperty Name="Q39_Yes" ColumnName="Q39_Yes" />
+          <ScalarProperty Name="Q38_YesDetails" ColumnName="Q38_YesDetails" />
+          <ScalarProperty Name="Q38_No" ColumnName="Q38_No" />
+          <ScalarProperty Name="Q38_Yes" ColumnName="Q38_Yes" />
+          <ScalarProperty Name="Q37B_YesDetails" ColumnName="Q37B_YesDetails" />
+          <ScalarProperty Name="Q37B_No" ColumnName="Q37B_No" />
+          <ScalarProperty Name="Q37B_Yes" ColumnName="Q37B_Yes" />
+          <ScalarProperty Name="Q37A_No" ColumnName="Q37A_No" />
+          <ScalarProperty Name="Q37A_Yes" ColumnName="Q37A_Yes" />
+          <ScalarProperty Name="Q36B_YesDetails" ColumnName="Q36B_YesDetails" />
+          <ScalarProperty Name="Q36A_YesDetails" ColumnName="Q36A_YesDetails" />
+          <ScalarProperty Name="Q36B_No" ColumnName="Q36B_No" />
+          <ScalarProperty Name="Q36A_No" ColumnName="Q36A_No" />
+          <ScalarProperty Name="Q36B_Yes" ColumnName="Q36B_Yes" />
+          <ScalarProperty Name="Q36A_Yes" ColumnName="Q36A_Yes" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="QuestionNo" ColumnName="QuestionNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="References">
+      <EntityTypeMapping TypeName="PDSModel.Reference">
+        <MappingFragment StoreEntitySet="References">
+          <ScalarProperty Name="ReferenceIsAcive" ColumnName="ReferenceIsAcive" />
+          <ScalarProperty Name="ReferenceTelNo" ColumnName="ReferenceTelNo" />
+          <ScalarProperty Name="ReferenceAddress" ColumnName="ReferenceAddress" />
+          <ScalarProperty Name="ReferenceName" ColumnName="ReferenceName" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="ReferenceNo" ColumnName="ReferenceNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PDSModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserNo" ColumnName="UserNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personnels">
+      <EntityTypeMapping TypeName="PDSModel.Personnel">
+        <MappingFragment StoreEntitySet="Personnels">
+          <ScalarProperty Name="datemodified" ColumnName="datemodified" />
+          <ScalarProperty Name="guid" ColumnName="guid" />
+          <ScalarProperty Name="BarcodeImage" ColumnName="BarcodeImage" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="CellphoneNo" ColumnName="CellphoneNo" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="TIN" ColumnName="TIN" />
+          <ScalarProperty Name="MotherMaidenName" ColumnName="MotherMaidenName" />
+          <ScalarProperty Name="MotherLastName" ColumnName="MotherLastName" />
+          <ScalarProperty Name="MotherMiddleName" ColumnName="MotherMiddleName" />
+          <ScalarProperty Name="MotherFirstName" ColumnName="MotherFirstName" />
+          <ScalarProperty Name="FatherLastName" ColumnName="FatherLastName" />
+          <ScalarProperty Name="FatherMiddleName" ColumnName="FatherMiddleName" />
+          <ScalarProperty Name="FatherFirstName" ColumnName="FatherFirstName" />
+          <ScalarProperty Name="SSSIdNo" ColumnName="SSSIdNo" />
+          <ScalarProperty Name="PhiliHealthIdNo" ColumnName="PhiliHealthIdNo" />
+          <ScalarProperty Name="PagIbigIdNo" ColumnName="PagIbigIdNo" />
+          <ScalarProperty Name="GSISIdNo" ColumnName="GSISIdNo" />
+          <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+          <ScalarProperty Name="CivilStatus" ColumnName="CivilStatus" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="PermanentTelephoneNo" ColumnName="PermanentTelephoneNo" />
+          <ScalarProperty Name="PermanentZipCode" ColumnName="PermanentZipCode" />
+          <ScalarProperty Name="PermanentAddress" ColumnName="PermanentAddress" />
+          <ScalarProperty Name="ResidentialtelephoneNo" ColumnName="ResidentialtelephoneNo" />
+          <ScalarProperty Name="ResidentialZipCode" ColumnName="ResidentialZipCode" />
+          <ScalarProperty Name="ResidentialAddress" ColumnName="ResidentialAddress" />
+          <ScalarProperty Name="SuffixName" ColumnName="SuffixName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SurName" ColumnName="SurName" />
+          <ScalarProperty Name="PersonnelIdNo" ColumnName="PersonnelIdNo" />
+          <ScalarProperty Name="CSIdNo" ColumnName="CSIdNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveOffices">
+      <EntityTypeMapping TypeName="PDSModel.LeaveOffice">
+        <MappingFragment StoreEntitySet="LeaveOffice">
+          <ScalarProperty Name="OfficeAgency" ColumnName="OfficeAgency" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="DateFiled" ColumnName="DateFiled" />
+          <ScalarProperty Name="LeaveOfficeNo" ColumnName="LeaveOfficeNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveApplications">
+      <EntityTypeMapping TypeName="PDSModel.LeaveApplication">
+        <MappingFragment StoreEntitySet="LeaveApplication">
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
+          <ScalarProperty Name="LeaveOfficeNo" ColumnName="LeaveOfficeNo" />
+          <ScalarProperty Name="RecommendationDetail" ColumnName="RecommendationDetail" />
+          <ScalarProperty Name="Recommendation" ColumnName="Recommendation" />
+          <ScalarProperty Name="Commutation" ColumnName="Commutation" />
+          <ScalarProperty Name="LeaveEnd" ColumnName="LeaveEnd" />
+          <ScalarProperty Name="LeaveStart" ColumnName="LeaveStart" />
+          <ScalarProperty Name="LeaveDays" ColumnName="LeaveDays" />
+          <ScalarProperty Name="LeaveSpentDetail" ColumnName="LeaveSpentDetail" />
+          <ScalarProperty Name="LeaveSpent" ColumnName="LeaveSpent" />
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+          <ScalarProperty Name="LeaveTypeNo" ColumnName="LeaveTypeNo" />
+          <ScalarProperty Name="DateApplied" ColumnName="DateApplied" />
+          <ScalarProperty Name="LeaveApplicationNo" ColumnName="LeaveApplicationNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaves">
+      <EntityTypeMapping TypeName="PDSModel.Leaf">
+        <MappingFragment StoreEntitySet="Leaves">
+          <ScalarProperty Name="LeaveName" ColumnName="LeaveName" />
+          <ScalarProperty Name="LeaveNo" ColumnName="LeaveNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LeaveTypes">
+      <EntityTypeMapping TypeName="PDSModel.LeaveType">
+        <MappingFragment StoreEntitySet="LeaveTypes">
+          <ScalarProperty Name="LeaveType1" ColumnName="LeaveType" />
+          <ScalarProperty Name="LeaveTypeNo" ColumnName="LeaveTypeNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

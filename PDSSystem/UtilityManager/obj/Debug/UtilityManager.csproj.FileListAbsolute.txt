@@ -1,0 +1,10 @@
+F:\src\rego\UtilityManager\bin\Debug\UtilityManager.dll
+F:\src\rego\UtilityManager\bin\Debug\UtilityManager.pdb
+F:\src\rego\UtilityManager\obj\Debug\UtilityManager.csprojResolveAssemblyReference.cache
+F:\src\rego\UtilityManager\obj\Debug\UtilityManager.dll
+F:\src\rego\UtilityManager\obj\Debug\UtilityManager.pdb
+E:\src\src\PDSSystem\UtilityManager\bin\Debug\UtilityManager.dll
+E:\src\src\PDSSystem\UtilityManager\bin\Debug\UtilityManager.pdb
+E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.csprojResolveAssemblyReference.cache
+E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.dll
+E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.pdb
