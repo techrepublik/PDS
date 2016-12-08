@@ -8,3 +8,8 @@ E:\src\src\PDSSystem\UtilityManager\bin\Debug\UtilityManager.pdb
 E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.csprojResolveAssemblyReference.cache
 E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.dll
 E:\src\src\PDSSystem\UtilityManager\obj\Debug\UtilityManager.pdb
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\UtilityManager\bin\Debug\UtilityManager.dll
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\UtilityManager\bin\Debug\UtilityManager.pdb
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\UtilityManager\obj\Debug\UtilityManager.csprojResolveAssemblyReference.cache
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\UtilityManager\obj\Debug\UtilityManager.dll
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\UtilityManager\obj\Debug\UtilityManager.pdb
