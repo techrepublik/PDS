@@ -99,6 +99,9 @@
     <Compile Include="dal\data\Leaf.cs">
       <DependentUpon>PDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="dal\data\LeaveAdd.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
     <Compile Include="dal\data\LeaveApplication.cs">
       <DependentUpon>PDS.tt</DependentUpon>
     </Compile>
@@ -177,7 +180,9 @@
     <Compile Include="dal\man\EducationManagement.cs" />
     <Compile Include="dal\man\EligibilityManagement.cs" />
     <Compile Include="dal\man\ExperienceManagement.cs" />
+    <Compile Include="dal\man\LeaveAddManagement.cs" />
     <Compile Include="dal\man\LeaveApplicationManagement.cs" />
+    <Compile Include="dal\man\LeaveCreditManagement.cs" />
     <Compile Include="dal\man\LeaveManagement.cs" />
     <Compile Include="dal\man\LeaveOfficeManagement.cs" />
     <Compile Include="dal\man\LeaveTypeManagement.cs" />

@@ -32,6 +32,7 @@ namespace PDSSystem.dal.data
             this.Spouses = new HashSet<Spous>();
             this.LeaveOffices = new HashSet<LeaveOffice>();
             this.LeaveApplications = new HashSet<LeaveApplication>();
+            this.LeaveCredits = new HashSet<LeaveCredit>();
         }
     
         public int PersonnelNo { get; set; }
@@ -105,5 +106,7 @@ namespace PDSSystem.dal.data
         public virtual ICollection<LeaveOffice> LeaveOffices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LeaveApplication> LeaveApplications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LeaveCredit> LeaveCredits { get; set; }
     }
 }

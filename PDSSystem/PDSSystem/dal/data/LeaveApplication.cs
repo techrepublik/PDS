@@ -17,7 +17,7 @@ namespace PDSSystem.dal.data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LeaveApplication()
         {
-            this.LeaveCredits = new HashSet<LeaveCredit>();
+            this.LeaveAdds = new HashSet<LeaveAdd>();
         }
     
         public int LeaveApplicationNo { get; set; }
@@ -39,6 +39,6 @@ namespace PDSSystem.dal.data
         public virtual LeaveType LeaveType { get; set; }
         public virtual Personnel Personnel { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LeaveCredit> LeaveCredits { get; set; }
+        public virtual ICollection<LeaveAdd> LeaveAdds { get; set; }
     }
 }

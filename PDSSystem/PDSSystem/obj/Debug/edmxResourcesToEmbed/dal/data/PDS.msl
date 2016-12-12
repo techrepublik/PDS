@@ -404,10 +404,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="LeaveAdds">
+      <EntityTypeMapping TypeName="PDSModel.LeaveAdd">
+        <MappingFragment StoreEntitySet="LeaveAdds">
+          <ScalarProperty Name="LeaveCreditNo" ColumnName="LeaveCreditNo" />
+          <ScalarProperty Name="LeaveApplicationNo" ColumnName="LeaveApplicationNo" />
+          <ScalarProperty Name="LeaveAddDate" ColumnName="LeaveAddDate" />
+          <ScalarProperty Name="LeaveAddNo" ColumnName="LeaveAddNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LeaveCredits">
       <EntityTypeMapping TypeName="PDSModel.LeaveCredit">
         <MappingFragment StoreEntitySet="LeaveCredits">
-          <ScalarProperty Name="LeaveApplicationNo" ColumnName="LeaveApplicationNo" />
+          <ScalarProperty Name="PersonnelNo" ColumnName="PersonnelNo" />
           <ScalarProperty Name="SickDeduction2" ColumnName="SickDeduction2" />
           <ScalarProperty Name="SickDeduction1" ColumnName="SickDeduction1" />
           <ScalarProperty Name="SickEarned" ColumnName="SickEarned" />

@@ -386,9 +386,18 @@
       <End Role="Personnel" EntitySet="Personnels" />
       <End Role="LeaveApplication" EntitySet="LeaveApplications" />
     </AssociationSet>
-    <EntitySet Name="LeaveCredits" EntityType="PDSModel.LeaveCredit" />
-    <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="PDSModel.FK_LeaveCredits_LeaveApplication">
+    <EntitySet Name="LeaveAdds" EntityType="PDSModel.LeaveAdd" />
+    <AssociationSet Name="FK_LeaveAdds_LeaveApplication" Association="PDSModel.FK_LeaveAdds_LeaveApplication">
       <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+      <End Role="LeaveAdd" EntitySet="LeaveAdds" />
+    </AssociationSet>
+    <EntitySet Name="LeaveCredits" EntityType="PDSModel.LeaveCredit" />
+    <AssociationSet Name="FK_LeaveAdds_LeaveCredits" Association="PDSModel.FK_LeaveAdds_LeaveCredits">
+      <End Role="LeaveCredit" EntitySet="LeaveCredits" />
+      <End Role="LeaveAdd" EntitySet="LeaveAdds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveCredits_Personnels" Association="PDSModel.FK_LeaveCredits_Personnels">
+      <End Role="Personnel" EntitySet="Personnels" />
       <End Role="LeaveCredit" EntitySet="LeaveCredits" />
     </AssociationSet>
   </EntityContainer>
@@ -601,6 +610,7 @@
     <NavigationProperty Name="Spouses" Relationship="PDSModel.FK_Spouses_Personnels" FromRole="Personnel" ToRole="Spous" />
     <NavigationProperty Name="LeaveOffices" Relationship="PDSModel.FK_LeaveOffice_Personnels" FromRole="Personnel" ToRole="LeaveOffice" />
     <NavigationProperty Name="LeaveApplications" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="Personnel" ToRole="LeaveApplication" />
+    <NavigationProperty Name="LeaveCredits" Relationship="PDSModel.FK_LeaveCredits_Personnels" FromRole="Personnel" ToRole="LeaveCredit" />
   </EntityType>
   <Association Name="FK_Details_Personnels">
     <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
@@ -831,7 +841,7 @@
     <NavigationProperty Name="Leaf" Relationship="PDSModel.FK_LeaveApplication_Leaves" FromRole="LeaveApplication" ToRole="Leaf" />
     <NavigationProperty Name="LeaveType" Relationship="PDSModel.FK_LeaveApplication_LeaveTypes" FromRole="LeaveApplication" ToRole="LeaveType" />
     <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="LeaveApplication" ToRole="Personnel" />
-    <NavigationProperty Name="LeaveCredits" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveApplication" ToRole="LeaveCredit" />
+    <NavigationProperty Name="LeaveAdds" Relationship="PDSModel.FK_LeaveAdds_LeaveApplication" FromRole="LeaveApplication" ToRole="LeaveAdd" />
   </EntityType>
   <EntityType Name="Leaf">
     <Key>
@@ -891,6 +901,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="LeaveAdd">
+    <Key>
+      <PropertyRef Name="LeaveAddNo" />
+    </Key>
+    <Property Name="LeaveAddNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaveAddDate" Type="DateTime" Precision="0" />
+    <Property Name="LeaveApplicationNo" Type="Int32" />
+    <Property Name="LeaveCreditNo" Type="Int32" />
+    <NavigationProperty Name="LeaveApplication" Relationship="PDSModel.FK_LeaveAdds_LeaveApplication" FromRole="LeaveAdd" ToRole="LeaveApplication" />
+    <NavigationProperty Name="LeaveCredit" Relationship="PDSModel.FK_LeaveAdds_LeaveCredits" FromRole="LeaveAdd" ToRole="LeaveCredit" />
+  </EntityType>
+  <Association Name="FK_LeaveAdds_LeaveApplication">
+    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveAdd" Role="LeaveAdd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveApplication">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Principal>
+      <Dependent Role="LeaveAdd">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="LeaveCredit">
     <Key>
       <PropertyRef Name="LeaveCreditNo" />
@@ -905,20 +940,33 @@
     <Property Name="SickEarned" Type="Double" />
     <Property Name="SickDeduction1" Type="Double" />
     <Property Name="SickDeduction2" Type="Double" />
-    <Property Name="LeaveApplicationNo" Type="Int32" />
-    <NavigationProperty Name="LeaveApplication" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveCredit" ToRole="LeaveApplication" />
+    <Property Name="PersonnelNo" Type="Int32" />
+    <NavigationProperty Name="LeaveAdds" Relationship="PDSModel.FK_LeaveAdds_LeaveCredits" FromRole="LeaveCredit" ToRole="LeaveAdd" />
+    <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveCredits_Personnels" FromRole="LeaveCredit" ToRole="Personnel" />
   </EntityType>
-  <Association Name="FK_LeaveCredits_LeaveApplication">
-    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="0..1">
+  <Association Name="FK_LeaveAdds_LeaveCredits">
+    <End Type="PDSModel.LeaveCredit" Role="LeaveCredit" Multiplicity="0..1" />
+    <End Type="PDSModel.LeaveAdd" Role="LeaveAdd" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveCredit">
+        <PropertyRef Name="LeaveCreditNo" />
+      </Principal>
+      <Dependent Role="LeaveAdd">
+        <PropertyRef Name="LeaveCreditNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveCredits_Personnels">
+    <End Type="PDSModel.Personnel" Role="Personnel" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Type="PDSModel.LeaveCredit" Role="LeaveCredit" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="LeaveApplication">
-        <PropertyRef Name="LeaveApplicationNo" />
+      <Principal Role="Personnel">
+        <PropertyRef Name="PersonnelNo" />
       </Principal>
       <Dependent Role="LeaveCredit">
-        <PropertyRef Name="LeaveApplicationNo" />
+        <PropertyRef Name="PersonnelNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

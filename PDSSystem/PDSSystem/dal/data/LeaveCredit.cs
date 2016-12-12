@@ -14,6 +14,12 @@ namespace PDSSystem.dal.data
     
     public partial class LeaveCredit
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LeaveCredit()
+        {
+            this.LeaveAdds = new HashSet<LeaveAdd>();
+        }
+    
         public int LeaveCreditNo { get; set; }
         public Nullable<System.DateTime> CreditFrom { get; set; }
         public Nullable<System.DateTime> CreditTo { get; set; }
@@ -24,8 +30,10 @@ namespace PDSSystem.dal.data
         public Nullable<double> SickEarned { get; set; }
         public Nullable<double> SickDeduction1 { get; set; }
         public Nullable<double> SickDeduction2 { get; set; }
-        public Nullable<int> LeaveApplicationNo { get; set; }
+        public Nullable<int> PersonnelNo { get; set; }
     
-        public virtual LeaveApplication LeaveApplication { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LeaveAdd> LeaveAdds { get; set; }
+        public virtual Personnel Personnel { get; set; }
     }
 }

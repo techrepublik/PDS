@@ -14,6 +14,15 @@
     <Property Name="Thnumbmark" Type="image" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="LeaveAdds">
+    <Key>
+      <PropertyRef Name="LeaveAddNo" />
+    </Key>
+    <Property Name="LeaveAddNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LeaveAddDate" Type="date" />
+    <Property Name="LeaveApplicationNo" Type="int" />
+    <Property Name="LeaveCreditNo" Type="int" />
+  </EntityType>
   <EntityType Name="LeaveApplication">
     <Key>
       <PropertyRef Name="LeaveApplicationNo" />
@@ -47,7 +56,7 @@
     <Property Name="SickEarned" Type="float" />
     <Property Name="SickDeduction1" Type="float" />
     <Property Name="SickDeduction2" Type="float" />
-    <Property Name="LeaveApplicationNo" Type="int" />
+    <Property Name="PersonnelNo" Type="int" />
   </EntityType>
   <EntityType Name="LeaveOffice">
     <Key>
@@ -546,6 +555,32 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LeaveAdds_LeaveApplication">
+    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LeaveAdds" Type="Self.LeaveAdds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveApplication">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Principal>
+      <Dependent Role="LeaveAdds">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LeaveAdds_LeaveCredits">
+    <End Role="LeaveCredits" Type="Self.LeaveCredits" Multiplicity="0..1" />
+    <End Role="LeaveAdds" Type="Self.LeaveAdds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveCredits">
+        <PropertyRef Name="LeaveCreditNo" />
+      </Principal>
+      <Dependent Role="LeaveAdds">
+        <PropertyRef Name="LeaveCreditNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LeaveApplication_Leaves">
     <End Role="Leaves" Type="Self.Leaves" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -588,17 +623,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_LeaveCredits_LeaveApplication">
-    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="0..1">
+  <Association Name="FK_LeaveCredits_Personnels">
+    <End Role="Personnels" Type="Self.Personnels" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
     <End Role="LeaveCredits" Type="Self.LeaveCredits" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="LeaveApplication">
-        <PropertyRef Name="LeaveApplicationNo" />
+      <Principal Role="Personnels">
+        <PropertyRef Name="PersonnelNo" />
       </Principal>
       <Dependent Role="LeaveCredits">
-        <PropertyRef Name="LeaveApplicationNo" />
+        <PropertyRef Name="PersonnelNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -730,6 +765,7 @@
   </Association>
   <EntityContainer Name="PDSModelStoreContainer">
     <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveAdds" EntityType="Self.LeaveAdds" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveApplication" EntityType="Self.LeaveApplication" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveCredits" EntityType="Self.LeaveCredits" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveOffice" EntityType="Self.LeaveOffice" Schema="dbo" store:Type="Tables" />
@@ -801,6 +837,14 @@
       <End Role="Personnels" EntitySet="Personnels" />
       <End Role="Experiencies" EntitySet="Experiencies" />
     </AssociationSet>
+    <AssociationSet Name="FK_LeaveAdds_LeaveApplication" Association="Self.FK_LeaveAdds_LeaveApplication">
+      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+      <End Role="LeaveAdds" EntitySet="LeaveAdds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveAdds_LeaveCredits" Association="Self.FK_LeaveAdds_LeaveCredits">
+      <End Role="LeaveCredits" EntitySet="LeaveCredits" />
+      <End Role="LeaveAdds" EntitySet="LeaveAdds" />
+    </AssociationSet>
     <AssociationSet Name="FK_LeaveApplication_Leaves" Association="Self.FK_LeaveApplication_Leaves">
       <End Role="Leaves" EntitySet="Leaves" />
       <End Role="LeaveApplication" EntitySet="LeaveApplication" />
@@ -813,8 +857,8 @@
       <End Role="Personnels" EntitySet="Personnels" />
       <End Role="LeaveApplication" EntitySet="LeaveApplication" />
     </AssociationSet>
-    <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="Self.FK_LeaveCredits_LeaveApplication">
-      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+    <AssociationSet Name="FK_LeaveCredits_Personnels" Association="Self.FK_LeaveCredits_Personnels">
+      <End Role="Personnels" EntitySet="Personnels" />
       <End Role="LeaveCredits" EntitySet="LeaveCredits" />
     </AssociationSet>
     <AssociationSet Name="FK_Municipalities_Provinces" Association="Self.FK_Municipalities_Provinces">
