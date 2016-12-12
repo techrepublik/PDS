@@ -102,6 +102,9 @@
     <Compile Include="dal\data\LeaveApplication.cs">
       <DependentUpon>PDS.tt</DependentUpon>
     </Compile>
+    <Compile Include="dal\data\LeaveCredit.cs">
+      <DependentUpon>PDS.tt</DependentUpon>
+    </Compile>
     <Compile Include="dal\data\LeaveOffice.cs">
       <DependentUpon>PDS.tt</DependentUpon>
     </Compile>

@@ -33,6 +33,22 @@
     <Property Name="LeaveOfficeNo" Type="int" />
     <Property Name="PersonnelNo" Type="int" />
   </EntityType>
+  <EntityType Name="LeaveCredits">
+    <Key>
+      <PropertyRef Name="LeaveCreditNo" />
+    </Key>
+    <Property Name="LeaveCreditNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreditFrom" Type="date" />
+    <Property Name="CreditTo" Type="date" />
+    <Property Name="Particulars" Type="varchar" MaxLength="50" />
+    <Property Name="VacationEarned" Type="float" />
+    <Property Name="VacationDeduction1" Type="float" />
+    <Property Name="VacationDeduction2" Type="float" />
+    <Property Name="SickEarned" Type="float" />
+    <Property Name="SickDeduction1" Type="float" />
+    <Property Name="SickDeduction2" Type="float" />
+    <Property Name="LeaveApplicationNo" Type="int" />
+  </EntityType>
   <EntityType Name="LeaveOffice">
     <Key>
       <PropertyRef Name="LeaveOfficeNo" />
@@ -572,6 +588,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LeaveCredits_LeaveApplication">
+    <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="LeaveCredits" Type="Self.LeaveCredits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveApplication">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Principal>
+      <Dependent Role="LeaveCredits">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Municipalities_Provinces">
     <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -701,6 +731,7 @@
   <EntityContainer Name="PDSModelStoreContainer">
     <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveApplication" EntityType="Self.LeaveApplication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LeaveCredits" EntityType="Self.LeaveCredits" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveOffice" EntityType="Self.LeaveOffice" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Leaves" EntityType="Self.Leaves" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="LeaveTypes" EntityType="Self.LeaveTypes" Schema="dbo" store:Type="Tables" />
@@ -781,6 +812,10 @@
     <AssociationSet Name="FK_LeaveApplication_Personnels" Association="Self.FK_LeaveApplication_Personnels">
       <End Role="Personnels" EntitySet="Personnels" />
       <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="Self.FK_LeaveCredits_LeaveApplication">
+      <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+      <End Role="LeaveCredits" EntitySet="LeaveCredits" />
     </AssociationSet>
     <AssociationSet Name="FK_Municipalities_Provinces" Association="Self.FK_Municipalities_Provinces">
       <End Role="Provinces" EntitySet="Provinces" />

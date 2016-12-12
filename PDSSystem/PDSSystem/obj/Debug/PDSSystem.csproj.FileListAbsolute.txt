@@ -120,7 +120,6 @@ C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\PDSSystem.pdb
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\BarcodeLib.dll
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\EntityFramework.dll
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\UtilityManager.dll
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\bin\Debug\UtilityManager.pdb
@@ -159,5 +158,3 @@ C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.Login
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.MainForm.resources
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.Properties.Resources.resources
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.csproj.GenerateResource.Cache
-C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\RdlCompile.cache
-C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\RdlCompile.compiled

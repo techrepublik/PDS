@@ -38,6 +38,22 @@
           <Property Name="LeaveOfficeNo" Type="int" />
           <Property Name="PersonnelNo" Type="int" />
         </EntityType>
+        <EntityType Name="LeaveCredits">
+          <Key>
+            <PropertyRef Name="LeaveCreditNo" />
+          </Key>
+          <Property Name="LeaveCreditNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CreditFrom" Type="date" />
+          <Property Name="CreditTo" Type="date" />
+          <Property Name="Particulars" Type="varchar" MaxLength="50" />
+          <Property Name="VacationEarned" Type="float" />
+          <Property Name="VacationDeduction1" Type="float" />
+          <Property Name="VacationDeduction2" Type="float" />
+          <Property Name="SickEarned" Type="float" />
+          <Property Name="SickDeduction1" Type="float" />
+          <Property Name="SickDeduction2" Type="float" />
+          <Property Name="LeaveApplicationNo" Type="int" />
+        </EntityType>
         <EntityType Name="LeaveOffice">
           <Key>
             <PropertyRef Name="LeaveOfficeNo" />
@@ -577,6 +593,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_LeaveCredits_LeaveApplication">
+          <End Role="LeaveApplication" Type="Self.LeaveApplication" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="LeaveCredits" Type="Self.LeaveCredits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveApplication">
+              <PropertyRef Name="LeaveApplicationNo" />
+            </Principal>
+            <Dependent Role="LeaveCredits">
+              <PropertyRef Name="LeaveApplicationNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Municipalities_Provinces">
           <End Role="Provinces" Type="Self.Provinces" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -706,6 +736,7 @@
         <EntityContainer Name="PDSModelStoreContainer">
           <EntitySet Name="Details" EntityType="Self.Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveApplication" EntityType="Self.LeaveApplication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeaveCredits" EntityType="Self.LeaveCredits" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveOffice" EntityType="Self.LeaveOffice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Leaves" EntityType="Self.Leaves" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LeaveTypes" EntityType="Self.LeaveTypes" Schema="dbo" store:Type="Tables" />
@@ -786,6 +817,10 @@
           <AssociationSet Name="FK_LeaveApplication_Personnels" Association="Self.FK_LeaveApplication_Personnels">
             <End Role="Personnels" EntitySet="Personnels" />
             <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="Self.FK_LeaveCredits_LeaveApplication">
+            <End Role="LeaveApplication" EntitySet="LeaveApplication" />
+            <End Role="LeaveCredits" EntitySet="LeaveCredits" />
           </AssociationSet>
           <AssociationSet Name="FK_Municipalities_Provinces" Association="Self.FK_Municipalities_Provinces">
             <End Role="Provinces" EntitySet="Provinces" />
@@ -1213,6 +1248,11 @@
           <AssociationSet Name="FK_LeaveApplication_Personnels" Association="PDSModel.FK_LeaveApplication_Personnels">
             <End Role="Personnel" EntitySet="Personnels" />
             <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+          </AssociationSet>
+          <EntitySet Name="LeaveCredits" EntityType="PDSModel.LeaveCredit" />
+          <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="PDSModel.FK_LeaveCredits_LeaveApplication">
+            <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+            <End Role="LeaveCredit" EntitySet="LeaveCredits" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Education">
@@ -1654,6 +1694,7 @@
           <NavigationProperty Name="Leaf" Relationship="PDSModel.FK_LeaveApplication_Leaves" FromRole="LeaveApplication" ToRole="Leaf" />
           <NavigationProperty Name="LeaveType" Relationship="PDSModel.FK_LeaveApplication_LeaveTypes" FromRole="LeaveApplication" ToRole="LeaveType" />
           <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="LeaveApplication" ToRole="Personnel" />
+          <NavigationProperty Name="LeaveCredits" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveApplication" ToRole="LeaveCredit" />
         </EntityType>
         <EntityType Name="Leaf">
           <Key>
@@ -1710,6 +1751,37 @@
             </Principal>
             <Dependent Role="LeaveApplication">
               <PropertyRef Name="PersonnelNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="LeaveCredit">
+          <Key>
+            <PropertyRef Name="LeaveCreditNo" />
+          </Key>
+          <Property Name="LeaveCreditNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CreditFrom" Type="DateTime" Precision="0" />
+          <Property Name="CreditTo" Type="DateTime" Precision="0" />
+          <Property Name="Particulars" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VacationEarned" Type="Double" />
+          <Property Name="VacationDeduction1" Type="Double" />
+          <Property Name="VacationDeduction2" Type="Double" />
+          <Property Name="SickEarned" Type="Double" />
+          <Property Name="SickDeduction1" Type="Double" />
+          <Property Name="SickDeduction2" Type="Double" />
+          <Property Name="LeaveApplicationNo" Type="Int32" />
+          <NavigationProperty Name="LeaveApplication" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveCredit" ToRole="LeaveApplication" />
+        </EntityType>
+        <Association Name="FK_LeaveCredits_LeaveApplication">
+          <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="PDSModel.LeaveCredit" Role="LeaveCredit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LeaveApplication">
+              <PropertyRef Name="LeaveApplicationNo" />
+            </Principal>
+            <Dependent Role="LeaveCredit">
+              <PropertyRef Name="LeaveApplicationNo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2119,6 +2191,23 @@
               <MappingFragment StoreEntitySet="LeaveTypes">
                 <ScalarProperty Name="LeaveType1" ColumnName="LeaveType" />
                 <ScalarProperty Name="LeaveTypeNo" ColumnName="LeaveTypeNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeaveCredits">
+            <EntityTypeMapping TypeName="PDSModel.LeaveCredit">
+              <MappingFragment StoreEntitySet="LeaveCredits">
+                <ScalarProperty Name="LeaveApplicationNo" ColumnName="LeaveApplicationNo" />
+                <ScalarProperty Name="SickDeduction2" ColumnName="SickDeduction2" />
+                <ScalarProperty Name="SickDeduction1" ColumnName="SickDeduction1" />
+                <ScalarProperty Name="SickEarned" ColumnName="SickEarned" />
+                <ScalarProperty Name="VacationDeduction2" ColumnName="VacationDeduction2" />
+                <ScalarProperty Name="VacationDeduction1" ColumnName="VacationDeduction1" />
+                <ScalarProperty Name="VacationEarned" ColumnName="VacationEarned" />
+                <ScalarProperty Name="Particulars" ColumnName="Particulars" />
+                <ScalarProperty Name="CreditTo" ColumnName="CreditTo" />
+                <ScalarProperty Name="CreditFrom" ColumnName="CreditFrom" />
+                <ScalarProperty Name="LeaveCreditNo" ColumnName="LeaveCreditNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

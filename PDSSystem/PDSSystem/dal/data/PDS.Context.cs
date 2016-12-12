@@ -52,5 +52,6 @@ namespace PDSSystem.dal.data
         public virtual DbSet<LeaveApplication> LeaveApplications { get; set; }
         public virtual DbSet<Leaf> Leaves { get; set; }
         public virtual DbSet<LeaveType> LeaveTypes { get; set; }
+        public virtual DbSet<LeaveCredit> LeaveCredits { get; set; }
     }
 }

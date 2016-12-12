@@ -55,6 +55,8 @@
         <AssociationConnector Association="PDSModel.FK_LeaveApplication_Leaves" />
         <AssociationConnector Association="PDSModel.FK_LeaveApplication_LeaveTypes" />
         <AssociationConnector Association="PDSModel.FK_LeaveApplication_Personnels" />
+        <EntityTypeShape EntityType="PDSModel.LeaveCredit" Width="1.5" PointX="8.25" PointY="33" />
+        <AssociationConnector Association="PDSModel.FK_LeaveCredits_LeaveApplication" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

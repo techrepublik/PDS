@@ -14,6 +14,12 @@ namespace PDSSystem.dal.data
     
     public partial class LeaveApplication
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public LeaveApplication()
+        {
+            this.LeaveCredits = new HashSet<LeaveCredit>();
+        }
+    
         public int LeaveApplicationNo { get; set; }
         public Nullable<System.DateTime> DateApplied { get; set; }
         public Nullable<int> LeaveTypeNo { get; set; }
@@ -32,5 +38,7 @@ namespace PDSSystem.dal.data
         public virtual Leaf Leaf { get; set; }
         public virtual LeaveType LeaveType { get; set; }
         public virtual Personnel Personnel { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LeaveCredit> LeaveCredits { get; set; }
     }
 }

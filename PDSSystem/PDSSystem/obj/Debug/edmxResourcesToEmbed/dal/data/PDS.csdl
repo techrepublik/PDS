@@ -386,6 +386,11 @@
       <End Role="Personnel" EntitySet="Personnels" />
       <End Role="LeaveApplication" EntitySet="LeaveApplications" />
     </AssociationSet>
+    <EntitySet Name="LeaveCredits" EntityType="PDSModel.LeaveCredit" />
+    <AssociationSet Name="FK_LeaveCredits_LeaveApplication" Association="PDSModel.FK_LeaveCredits_LeaveApplication">
+      <End Role="LeaveApplication" EntitySet="LeaveApplications" />
+      <End Role="LeaveCredit" EntitySet="LeaveCredits" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Education">
     <Key>
@@ -826,6 +831,7 @@
     <NavigationProperty Name="Leaf" Relationship="PDSModel.FK_LeaveApplication_Leaves" FromRole="LeaveApplication" ToRole="Leaf" />
     <NavigationProperty Name="LeaveType" Relationship="PDSModel.FK_LeaveApplication_LeaveTypes" FromRole="LeaveApplication" ToRole="LeaveType" />
     <NavigationProperty Name="Personnel" Relationship="PDSModel.FK_LeaveApplication_Personnels" FromRole="LeaveApplication" ToRole="Personnel" />
+    <NavigationProperty Name="LeaveCredits" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveApplication" ToRole="LeaveCredit" />
   </EntityType>
   <EntityType Name="Leaf">
     <Key>
@@ -882,6 +888,37 @@
       </Principal>
       <Dependent Role="LeaveApplication">
         <PropertyRef Name="PersonnelNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="LeaveCredit">
+    <Key>
+      <PropertyRef Name="LeaveCreditNo" />
+    </Key>
+    <Property Name="LeaveCreditNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreditFrom" Type="DateTime" Precision="0" />
+    <Property Name="CreditTo" Type="DateTime" Precision="0" />
+    <Property Name="Particulars" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="VacationEarned" Type="Double" />
+    <Property Name="VacationDeduction1" Type="Double" />
+    <Property Name="VacationDeduction2" Type="Double" />
+    <Property Name="SickEarned" Type="Double" />
+    <Property Name="SickDeduction1" Type="Double" />
+    <Property Name="SickDeduction2" Type="Double" />
+    <Property Name="LeaveApplicationNo" Type="Int32" />
+    <NavigationProperty Name="LeaveApplication" Relationship="PDSModel.FK_LeaveCredits_LeaveApplication" FromRole="LeaveCredit" ToRole="LeaveApplication" />
+  </EntityType>
+  <Association Name="FK_LeaveCredits_LeaveApplication">
+    <End Type="PDSModel.LeaveApplication" Role="LeaveApplication" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="PDSModel.LeaveCredit" Role="LeaveCredit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LeaveApplication">
+        <PropertyRef Name="LeaveApplicationNo" />
+      </Principal>
+      <Dependent Role="LeaveCredit">
+        <PropertyRef Name="LeaveApplicationNo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

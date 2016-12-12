@@ -29,7 +29,7 @@ namespace PDSSystem.form
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (jTabWizard1.SelectedIndex < jTabWizard1.TabCount)
+            if (jTabWizard1.SelectedIndex < jTabWizard1.TabCount - 1)
             {
                 jTabWizard1.SelectTab(jTabWizard1.SelectedIndex + 1);
                 selectTab();
