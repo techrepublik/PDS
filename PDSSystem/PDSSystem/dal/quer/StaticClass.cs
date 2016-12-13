@@ -67,6 +67,7 @@ namespace PDSSystem.dal.quer
             }
         }
 
+        #region Leave
         public static List<EmployeeObj> ListEmployee()
         {
             using (var data = new PDSEntities())
@@ -154,5 +155,33 @@ namespace PDSSystem.dal.quer
                 return q.OrderByDescending(o => o.DateApplied).ToList();
             }
         }
+
+        public static List<LeaveCreditObj> ListLeaveCreditSum()
+        {
+            using (var data = new PDSEntities())
+            {
+                var q = from pers in data.Personnels
+                        join leav in data.LeaveCredits on pers.PersonnelNo equals leav.PersonnelNo
+                        group leav by pers.SurName into g1
+                        select new LeaveCreditObj
+                        {
+                            PersonnelNo = g1.First().Personnel.PersonnelNo,
+                            LastName = g1.First().Personnel.SurName,
+                            FirstName = g1.First().Personnel.FirstName,
+                            MiddleName = g1.First().Personnel.MiddleName,
+                            SuffixName = g1.First().Personnel.SuffixName,
+                            VacationEarned = g1.Sum(s => s.VacationEarned),
+                            SickEarned = g1.Sum(s => s.SickEarned),
+                            SickDeduction1 = g1.Sum(s => s.SickDeduction1),
+                            SickDeduction2 = g1.Sum(s => s.SickDeduction2),
+                            VacationDeduction1 = g1.Sum(s => s.VacationDeduction1),
+                            VacationDeduction2 = g1.Sum(s => s.VacationDeduction2)
+                        };
+
+                return q.OrderBy(o => o.LastName).ToList();
+            }
+        }
+
+        #endregion
     }
 }

@@ -67,6 +67,7 @@
     <Compile Include="dal\classes\ChildrenObj.cs" />
     <Compile Include="dal\classes\EducationObj.cs" />
     <Compile Include="dal\classes\EmployeeObj.cs" />
+    <Compile Include="dal\classes\LeaveCreditObj.cs" />
     <Compile Include="dal\classes\LeaveObj.cs" />
     <Compile Include="dal\classes\UtilityClass.cs" />
     <Compile Include="dal\data\Address.cs">
@@ -232,6 +233,18 @@
     <Compile Include="form\LeaveApplicationForm.Designer.cs">
       <DependentUpon>LeaveApplicationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="form\LeaveCreditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveCreditForm.Designer.cs">
+      <DependentUpon>LeaveCreditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form\LeaveCreditListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form\LeaveCreditListForm.Designer.cs">
+      <DependentUpon>LeaveCreditListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="form\LeaveForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +352,12 @@
     <EmbeddedResource Include="form\LeaveApplicationForm.resx">
       <DependentUpon>LeaveApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveCreditForm.resx">
+      <DependentUpon>LeaveCreditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form\LeaveCreditListForm.resx">
+      <DependentUpon>LeaveCreditListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form\LeaveForm.resx">
       <DependentUpon>LeaveForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +437,7 @@
     <None Include="Properties\DataSources\PDSSystem.dal.data.Experiency.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.Leaf.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveApplication.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveCredit.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveOffice.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.LeaveType.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.Municipality.datasource" />

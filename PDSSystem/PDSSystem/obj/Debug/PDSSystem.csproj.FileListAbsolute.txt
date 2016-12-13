@@ -158,3 +158,5 @@ C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.Login
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.MainForm.resources
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.Properties.Resources.resources
 C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.csproj.GenerateResource.Cache
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.form.LeaveCreditForm.resources
+C:\Users\josh\Documents\GitHub\PDS\PDSSystem\PDSSystem\obj\Debug\PDSSystem.form.LeaveCreditListForm.resources
