@@ -425,6 +425,7 @@
     <None Include="Properties\DataSources\PDSSystem.dal.classes.ChildrenObj.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.classes.EducationObj.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.classes.EmployeeObj.datasource" />
+    <None Include="Properties\DataSources\PDSSystem.dal.classes.LeaveCreditObj.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.classes.LeaveObj.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.Address.datasource" />
     <None Include="Properties\DataSources\PDSSystem.dal.data.AddressType.datasource" />
