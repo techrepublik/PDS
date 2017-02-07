@@ -60,10 +60,10 @@
             this.degreeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.yearGraduatedComboBox = new System.Windows.Forms.ComboBox();
             this.highestLevelEarnedTextBox = new System.Windows.Forms.TextBox();
-            this.inclusiveDate1DateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.inclusiveDate2DateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.scholarshipHonorTextBox = new System.Windows.Forms.TextBox();
             this.modifieddateLabel1 = new System.Windows.Forms.Label();
+            this.inclusiveDate2DateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.inclusiveDate1DateTimePicker = new System.Windows.Forms.DateTimePicker();
             educationLevelNoLabel = new System.Windows.Forms.Label();
             schoolNoLabel = new System.Windows.Forms.Label();
             degreeNoLabel = new System.Windows.Forms.Label();
@@ -354,26 +354,8 @@
             this.highestLevelEarnedTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.educationBindingSource, "HighestLevelEarned", true));
             this.highestLevelEarnedTextBox.Location = new System.Drawing.Point(140, 144);
             this.highestLevelEarnedTextBox.Name = "highestLevelEarnedTextBox";
-            this.highestLevelEarnedTextBox.Size = new System.Drawing.Size(174, 20);
+            this.highestLevelEarnedTextBox.Size = new System.Drawing.Size(345, 20);
             this.highestLevelEarnedTextBox.TabIndex = 4;
-            // 
-            // inclusiveDate1DateTimePicker
-            // 
-            this.inclusiveDate1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.educationBindingSource, "InclusiveDate1", true));
-            this.inclusiveDate1DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inclusiveDate1DateTimePicker.Location = new System.Drawing.Point(140, 169);
-            this.inclusiveDate1DateTimePicker.Name = "inclusiveDate1DateTimePicker";
-            this.inclusiveDate1DateTimePicker.Size = new System.Drawing.Size(174, 20);
-            this.inclusiveDate1DateTimePicker.TabIndex = 5;
-            // 
-            // inclusiveDate2DateTimePicker
-            // 
-            this.inclusiveDate2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.educationBindingSource, "InclusiveDate2", true));
-            this.inclusiveDate2DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.inclusiveDate2DateTimePicker.Location = new System.Drawing.Point(140, 194);
-            this.inclusiveDate2DateTimePicker.Name = "inclusiveDate2DateTimePicker";
-            this.inclusiveDate2DateTimePicker.Size = new System.Drawing.Size(174, 20);
-            this.inclusiveDate2DateTimePicker.TabIndex = 6;
             // 
             // scholarshipHonorTextBox
             // 
@@ -391,6 +373,26 @@
             this.modifieddateLabel1.Size = new System.Drawing.Size(100, 23);
             this.modifieddateLabel1.TabIndex = 18;
             this.modifieddateLabel1.Text = "...";
+            // 
+            // inclusiveDate2DateTimePicker
+            // 
+            this.inclusiveDate2DateTimePicker.CustomFormat = "yyyy";
+            this.inclusiveDate2DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.educationBindingSource, "InclusiveDate2", true));
+            this.inclusiveDate2DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inclusiveDate2DateTimePicker.Location = new System.Drawing.Point(140, 194);
+            this.inclusiveDate2DateTimePicker.Name = "inclusiveDate2DateTimePicker";
+            this.inclusiveDate2DateTimePicker.Size = new System.Drawing.Size(102, 20);
+            this.inclusiveDate2DateTimePicker.TabIndex = 6;
+            // 
+            // inclusiveDate1DateTimePicker
+            // 
+            this.inclusiveDate1DateTimePicker.CustomFormat = "yyyy";
+            this.inclusiveDate1DateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.educationBindingSource, "InclusiveDate1", true));
+            this.inclusiveDate1DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.inclusiveDate1DateTimePicker.Location = new System.Drawing.Point(140, 169);
+            this.inclusiveDate1DateTimePicker.Name = "inclusiveDate1DateTimePicker";
+            this.inclusiveDate1DateTimePicker.Size = new System.Drawing.Size(102, 20);
+            this.inclusiveDate1DateTimePicker.TabIndex = 5;
             // 
             // EducationForm
             // 
@@ -451,11 +453,11 @@
         private System.Windows.Forms.ComboBox degreeNoComboBox;
         private System.Windows.Forms.ComboBox yearGraduatedComboBox;
         private System.Windows.Forms.TextBox highestLevelEarnedTextBox;
-        private System.Windows.Forms.DateTimePicker inclusiveDate1DateTimePicker;
-        private System.Windows.Forms.DateTimePicker inclusiveDate2DateTimePicker;
         private System.Windows.Forms.TextBox scholarshipHonorTextBox;
         private System.Windows.Forms.BindingSource schoolNameBindingSource;
         private System.Windows.Forms.BindingSource degreeBindingSource;
         private System.Windows.Forms.Label modifieddateLabel1;
+        private System.Windows.Forms.DateTimePicker inclusiveDate2DateTimePicker;
+        private System.Windows.Forms.DateTimePicker inclusiveDate1DateTimePicker;
     }
 }
