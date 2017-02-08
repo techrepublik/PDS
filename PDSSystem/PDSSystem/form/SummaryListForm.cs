@@ -762,5 +762,11 @@ namespace PDSSystem.form
         {
             _tabChoice = Tab.education;
         }
+
+        private void SummaryListForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+
+        }
     }
 }

@@ -39,6 +39,7 @@
             this.personalDataSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pDSListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePDSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviceRecordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,6 @@
             this.toolStripButtonBarcode = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonLeave = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonService = new System.Windows.Forms.ToolStripButton();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -152,6 +152,14 @@
             this.updatePDSToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.updatePDSToolStripMenuItem.Text = "&Barcode Search";
             this.updatePDSToolStripMenuItem.Click += new System.EventHandler(this.updatePDSToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(210, 22);
+            this.toolStripMenuItem5.Text = "Wizard PDS Form";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem3
             // 
@@ -298,14 +306,6 @@
             this.toolStripButtonService.Size = new System.Drawing.Size(88, 22);
             this.toolStripButtonService.Text = "Service Record";
             // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(210, 22);
-            this.toolStripMenuItem5.Text = "Wizard PDS Form";
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,6 +320,7 @@
             this.Name = "MainForm";
             this.Text = "Main Form";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
